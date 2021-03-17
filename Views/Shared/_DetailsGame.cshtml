@@ -1,22 +1,19 @@
 ﻿@model Game
 
-<div class="game-info">
-
-    <div class="game-grid">
-                <div class="game-card">
-                    <div>
-                        <span class="title">
-                            @Model.Title
-                        </span>
-                        <span class="description">
-                            @Model.Description
-                        </span>
-                        <span class="releaseYear">
-                            @Model.ReleaseYear
-                        </span>
-                        <img src="@Model.ImageUrl" alt="Image" />
-                    </div>
-                </div>
-        }
+    <div class="game-details">
+        <div class="text-details">
+            <span class="title">
+                @Model.Title
+            </span>
+            <span class="description">
+                @Model.Description
+            </span>
+            <span class="releaseYear">
+                @Model.ReleaseYear
+            </span>
+        </div>
+        <div class="image">
+        <img src="@Model.ImageUrl" alt="Image" />
+        </div>
     </div>
-</div>
+                       
