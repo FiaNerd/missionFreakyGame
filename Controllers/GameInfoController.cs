@@ -13,7 +13,7 @@ namespace FreakyGame.Controllers
             this.context = context;
         }
 
-        public IActionResult GameInfo()
+        public IActionResult GameDetails()
         {
             var games = context.Games.ToList();
 
