@@ -13,11 +13,14 @@ namespace FreakyGame.Controllers
             this.context = context;
         }
 
-        public IActionResult GameDetails()
+        // GET /products/black-tshirt
+        [Route("/gameInfo/{urlSlug}", Name = "gamedetails")]
+        public IActionResult GameDetails(string urlSlug)
         {
-            var games = context.Games.ToList();
+            var gameInfo = context.Games
+                .FirstOrDefault(game => game.UrlSlug == urlSlug);
 
-            return View(games);
+            return View(gameInfo);
         }
     }
 }

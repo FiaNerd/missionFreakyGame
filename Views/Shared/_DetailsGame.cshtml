@@ -1,23 +1,22 @@
-﻿<div class="game-info">
+﻿@model Game
+
+<div class="game-info">
 
     <div class="game-grid">
-        @foreach (var games in Model)
-        {
-            @*<a asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">*@
                 <div class="game-card">
                     <div>
                         <span class="title">
-                            @games.Title
+                            @Model.Title
                         </span>
                         <span class="description">
-                            @games.Description
+                            @Model.Description
                         </span>
                         <span class="releaseYear">
-                            @games.ReleaseYear
+                            @Model.ReleaseYear
                         </span>
+                        <img src="@Model.ImageUrl" alt="Image" />
                     </div>
                 </div>
-            @*</a>*@
         }
     </div>
 </div>
