@@ -1,19 +1,32 @@
 ﻿@model Game
 
     <div class="game-details">
-        <div class="text-details">
-            <span class="title">
+
+        <div>
+            <div class="title-game">
+            <span >
                 @Model.Title
             </span>
-            <span class="description">
+
+            </div>
+
+            <div class="description">
+            <span >
                 @Model.Description
             </span>
-            <span class="releaseYear">
-                @Model.ReleaseYear
+
+            </div>
+
+            <div class="releaseYear">
+            <span>
+              Release year: @Model.ReleaseYear
             </span>
+            </div>
         </div>
+
         <div class="image">
         <img src="@Model.ImageUrl" alt="Image" />
         </div>
+
     </div>
                        
