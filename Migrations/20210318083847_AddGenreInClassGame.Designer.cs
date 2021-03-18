@@ -3,14 +3,16 @@ using FreakyGame.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    partial class FreakyGameContextModelSnapshot : ModelSnapshot
+    [Migration("20210318083847_AddGenreInClassGame")]
+    partial class AddGenreInClassGame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

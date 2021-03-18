@@ -20,7 +20,9 @@ namespace FreakyGame.Data.Entities
         public string Title { get; protected set; }
 
         public string Description { get; protected set; }
-        
+
+        public string Genre { get; protected set; }
+
         public string ReleaseYear { get; set; }
 
         public Uri ImageUrl { get; protected set; }
