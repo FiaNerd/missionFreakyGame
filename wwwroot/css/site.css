@@ -21,7 +21,7 @@ body {
 header {
   position: relative;
   height: 6em;
-  background-color: rgba(53, 52, 52, 0.938);
+  background-color: #000000;
   line-height: 90px;
 }
 
@@ -39,6 +39,7 @@ h2 {
   font-size: 1.4rem;
   top: 9em;
   margin-left: 50em;
+  line-height: 3em;
 }
 
 /* INDEX */
@@ -78,6 +79,57 @@ h2 {
 
 .description {
   margin-bottom: 1.5em;
+}
+
+/* FORM */
+
+.form-grid {
+  display: flex;
+  width: 30%;
+  margin-bottom: 5em;
+  margin-left: 32em;
+  margin-top: 7em;
+  padding: 2em;
+  background-color: #000000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form {
+  position: relative;
+  border: 3px dotted black;
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+.form label {
+  display: block;
+  color: #fff;
+}
+
+.form select {
+  height: 2.4em;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.form input {
+  position: block;
+  height: 2.4em;
+  width: 100%;
+  padding-left: 0.3em;
+  border: 1px solid #747474;
+  border-radius: 0.2em;
+  margin-bottom: 1em;
+}
+
+.btn-register {
+  cursor: pointer;
+  height: 14%;
+  width: 25%;
+  font-size: 1.2rem;
+  margin-top: 1em;
+  border: none;
+  background-color: #ffffff;
 }
 
 /* Sticky footer styles
