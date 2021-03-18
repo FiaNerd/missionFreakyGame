@@ -1,6 +1,5 @@
 ﻿using FreakyGame.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace FreakyGame.Controllers
 {
