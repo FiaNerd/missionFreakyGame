@@ -17,7 +17,8 @@ namespace FreakyGame.Controllers
         public IActionResult Index()
         {
             var allGamesFromDB = context.RegisterScores
-                .Include(x => x.Games).ToList();
+                .Include(x => x.Games)
+                .ToList();
 
             return View(allGamesFromDB);
         }

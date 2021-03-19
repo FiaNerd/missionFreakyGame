@@ -15,7 +15,7 @@ namespace FreakyGame.Controllers
 
         // GET /products/black-tshirt
         [Route("/gameInfo/{urlSlug}", Name = "gamedetails")]
-        public IActionResult GameDetails(string urlSlug)
+        public IActionResult Details(string urlSlug)
         {
             var gameInfo = context.Games
                 .FirstOrDefault(game => game.UrlSlug == urlSlug);
