@@ -1,30 +1,39 @@
 ﻿
-    <a class="registerHighScore-link" href="~/register/registerhighscore">Register highscore</a>
 
-    <div class="game-grid">
-        @foreach (var games in Model)
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a class="registerHighScore-link" href="~/register/registerhighscore">Register highscore</a>
+
+<div class="game-grid">
+    @foreach (var games in Model)
+    {
+        @foreach (var item in games.Games)
         {
-        <div class="game-card">
-            <div class="title-link">
-                <a asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
+            <div class="game-card">
+                <div class="title-link">
+                    <a asp-route="gamedetails" asp-route-urlSlug="@item.UrlSlug">
 
-                    <span class="title-info">
-                        @games.Title
+                        <span class="title-info">
+                            @item.Title
+                        </span>
+                    </a>
+
+                    @*TODO: Lägg in spelare namn och datum*@
+                    <span class="player">
+                        @item.RegisterScore.Player
                     </span>
-                </a>
+                    <span class="releaseYear">
+                        @item.RegisterScore.Date.ToString("yyyy MM dd")
+                    </span>
 
-                @*TODO: Lägg in spelare namn och datum*@
-                <span class="player">
-                    Jon Schaffer
-                </span>
-                <span class="releaseYear">
-                    2019-02-03
-                </span>
-
-                <span class="CountHigscore">
-                    220 000
-                </span>
+                    <span class="CountHigscore">
+                        @item.RegisterScore.Score
+                    </span>
+                </div>
             </div>
-        </div>
         }
-    </div>
+
+    }
+</div>

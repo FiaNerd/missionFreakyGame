@@ -1,5 +1,6 @@
 ﻿using FreakyGame.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace FreakyGame.Controllers
@@ -15,10 +16,19 @@ namespace FreakyGame.Controllers
 
         public IActionResult Index()
         {
-            var games = context.Games.ToList();
+            var allGamesFromDB = context.RegisterScores
+                .Include(x => x.Games).ToList();
 
-            return View(games); 
+            return View(allGamesFromDB);
         }
 
+        public IActionResult Details(int id)
+        {
+            var allGamesFromDB = context.RegisterScores
+                .Include(x => x.Games)
+                .FirstOrDefault(x => x.Id == id);
+
+            return View(allGamesFromDB);
+        }
     }
 }

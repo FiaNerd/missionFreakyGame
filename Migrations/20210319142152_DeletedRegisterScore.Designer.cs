@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    [Migration("20210318100034_addClassRegister")]
-    partial class addClassRegister
+    [Migration("20210319142152_DeletedRegisterScore")]
+    partial class DeletedRegisterScore
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,9 +37,6 @@ namespace FreakyGame.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RegisterScoreId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ReleaseYear")
                         .HasColumnType("nvarchar(max)");
 
@@ -52,8 +49,6 @@ namespace FreakyGame.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RegisterScoreId");
 
                     b.ToTable("Games");
                 });
@@ -68,23 +63,24 @@ namespace FreakyGame.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Game")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Player")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RegisterScoreId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Score")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RegisterScoreId");
+
                     b.ToTable("GameRegister");
                 });
 
-            modelBuilder.Entity("FreakyGame.Data.Entities.Game", b =>
+            modelBuilder.Entity("FreakyGame.Data.Entities.RegisterScore", b =>
                 {
                     b.HasOne("FreakyGame.Data.Entities.RegisterScore", null)
                         .WithMany("GameRegister")

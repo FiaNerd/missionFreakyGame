@@ -4,14 +4,16 @@ using FreakyGame.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    partial class FreakyGameContextModelSnapshot : ModelSnapshot
+    [Migration("20210319174536_ChangesInClasses")]
+    partial class ChangesInClasses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,7 +37,7 @@ namespace FreakyGame.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RegisterScoreId")
+                    b.Property<int?>("RegisterScoreId")
                         .HasColumnType("int");
 
                     b.Property<string>("ReleaseYear")
@@ -70,28 +72,40 @@ namespace FreakyGame.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RegisterScoreId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Score")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RegisterScoreId");
 
                     b.ToTable("RegisterScores");
                 });
 
             modelBuilder.Entity("FreakyGame.Data.Entities.Game", b =>
                 {
-                    b.HasOne("FreakyGame.Data.Entities.RegisterScore", "RegisterScore")
-                        .WithMany("Games")
-                        .HasForeignKey("RegisterScoreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RegisterScore");
+                    b.HasOne("FreakyGame.Data.Entities.RegisterScore", null)
+                        .WithMany("Game")
+                        .HasForeignKey("RegisterScoreId");
                 });
 
             modelBuilder.Entity("FreakyGame.Data.Entities.RegisterScore", b =>
                 {
+                    b.HasOne("FreakyGame.Data.Entities.Game", "Games")
+                        .WithMany()
+                        .HasForeignKey("RegisterScoreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Games");
+                });
+
+            modelBuilder.Entity("FreakyGame.Data.Entities.RegisterScore", b =>
+                {
+                    b.Navigation("Game");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FreakyGame.Data.Entities
 {
     public class Game
     {
-        public Game(int id, string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
+        public Game(string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
         {
-            Id = id;
             Title = title;
             Description = description;
             ReleaseYear = releaseYear;
@@ -30,5 +31,10 @@ namespace FreakyGame.Data.Entities
         [Required]
         [MaxLength(50)]
         public string UrlSlug { get; protected set; }
+
+        [ForeignKey("RegisterScoreId")]
+        public RegisterScore RegisterScore { get; set; }
+        public int RegisterScoreId { get; set; }
+
     }
 }
