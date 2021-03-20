@@ -24,8 +24,9 @@ namespace FreakyGame.Controllers
             gameInfo.AllGameScores = context.RegisterScores
                 .Where(score => score.GameId == gameInfo.Id)
                 .ToList();
+                
 
-            if(gameInfo == null)
+            if (gameInfo == null)
             {
                 return NotFound();
             }

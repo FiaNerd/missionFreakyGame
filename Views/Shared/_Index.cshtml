@@ -20,12 +20,11 @@
                 @{
                     var first = true;
                 }
-
                 @foreach (var score in games.AllGameScores)
                 {
-                    if (first)
+
+                    @if (first)
                     {
-                        @*TODO: Lägg in spelare namn och datum*@
                         <span class="player">
                             @(score?.Player ?? "")
                         </span>
@@ -41,6 +40,7 @@
 
                     first = false;
                 }
+
             </div>
         </div>
     }

@@ -1,7 +1,7 @@
 ﻿
 @model IEnumerable<RegisterScore>
 
-@foreach (var item in Model)
+@foreach (var item in Model.Take(10))
 {
     <div class="score-card">
         <span class="player">
