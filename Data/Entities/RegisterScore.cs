@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FreakyGame.Data.Entities
@@ -24,7 +23,8 @@ namespace FreakyGame.Data.Entities
         [Required]
         public int Score { get; protected set; }
 
-        public ICollection<Game> Games { get; protected set; }
-     = new List<Game>();
+        public int GameId { get; protected set; }
+
+        public Game Game { get; protected set; }
     }
 }

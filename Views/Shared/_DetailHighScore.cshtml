@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<RegisterScore>
+
+@foreach (var item in Model)
+{
+    <div class="score-card">
+        <span class="player">
+            @item.Player
+        </span>
+        <span class="releaseYear">
+            @item.Date.ToString("yyyy-MM-dd")
+        </span>
+
+        <span class="CountHigscore">
+            @item.Score
+        </span>
+    </div>
+}

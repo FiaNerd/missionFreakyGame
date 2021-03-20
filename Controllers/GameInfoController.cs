@@ -1,5 +1,6 @@
 ﻿using FreakyGame.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace FreakyGame.Controllers
@@ -12,15 +13,35 @@ namespace FreakyGame.Controllers
         {
             this.context = context;
         }
-
+        
         // GET /products/black-tshirt
-        [Route("/gameInfo/{urlSlug}", Name = "gamedetails")]
-        public IActionResult Details(string urlSlug)
+        [Route("/gameinfo/{urlSlug}", Name = "gamedetails")]
+        public IActionResult Detail(string urlSlug)
         {
             var gameInfo = context.Games
                 .FirstOrDefault(game => game.UrlSlug == urlSlug);
 
+            gameInfo.AllGameScores = context.RegisterScores
+                .Where(score => score.GameId == gameInfo.Id)
+                .ToList();
+
+            if(gameInfo == null)
+            {
+                return NotFound();
+            }
+
             return View(gameInfo);
+        }
+
+
+        public IActionResult GetAllDetail(int id)
+        {
+            var getDetails = context.RegisterScores
+                .Include(x => x.Game)
+                .Where(x => x.Id == id)
+                .ToList();
+
+            return View(getDetails);
         }
     }
 }

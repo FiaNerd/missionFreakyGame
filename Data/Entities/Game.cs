@@ -32,9 +32,7 @@ namespace FreakyGame.Data.Entities
         [MaxLength(50)]
         public string UrlSlug { get; protected set; }
 
-        [ForeignKey("RegisterScoreId")]
-        public RegisterScore RegisterScore { get; set; }
-        public int RegisterScoreId { get; set; }
+        public List<RegisterScore> AllGameScores { get; set; }
 
     }
 }

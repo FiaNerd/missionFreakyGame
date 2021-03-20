@@ -14,7 +14,6 @@ namespace FreakyGame.Controllers
 
         public IActionResult RegisterHighScore()
         {
-
             return View();
         }
 
