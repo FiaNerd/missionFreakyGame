@@ -18,15 +18,15 @@ namespace FreakyGame.Controllers
         {
             var allGamesFromDB = context.Games
                 .Include(x => x.AllGameScores)
+                .OrderByDescending(x => x.Id)
                 .ToList();
 
 
             foreach (var game in allGamesFromDB)
             {
-                game.AllGameScores
-                    .OrderByDescending(x => x.Score)
-                    .Max(x => x.Score);
-
+                game.AllGameScores = 
+                    (from s in game.AllGameScores orderby s.Score descending select s)
+                    .ToList();
             }
 
             return View(allGamesFromDB);
@@ -37,7 +37,6 @@ namespace FreakyGame.Controllers
             var allGamesFromDB = context.Games
                 .Include(x => x.AllGameScores)
                 .FirstOrDefault(x => x.Id == id);
-                
 
             return View(allGamesFromDB);
         }

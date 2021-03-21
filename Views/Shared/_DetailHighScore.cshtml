@@ -1,12 +1,13 @@
 ﻿
 @model IEnumerable<RegisterScore>
 
-@foreach (var item in Model.Take(10))
+@foreach (var item in Model)
 {
     <div class="score-card">
         <span class="player">
             @item.Player
         </span>
+
         <span class="releaseYear">
             @item.Date.ToString("yyyy-MM-dd")
         </span>

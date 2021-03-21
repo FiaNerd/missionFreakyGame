@@ -23,6 +23,7 @@ namespace FreakyGame.Controllers
 
             gameInfo.AllGameScores = context.RegisterScores
                 .Where(score => score.GameId == gameInfo.Id)
+                .Take(10)
                 .ToList();
                 
 
