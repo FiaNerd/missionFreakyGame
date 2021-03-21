@@ -3,16 +3,16 @@
 
 @foreach (var item in Model)
 {
-    <div class="score-card">
-        <span class="player">
+    <div class="score">
+        <span class="playerList">
             @item.Player
         </span>
 
-        <span class="releaseYear">
+        <sp class="dateList">
             @item.Date.ToString("yyyy-MM-dd")
-        </span>
+        </sp>
 
-        <span class="CountHigscore">
+        <span class="higscoreList">
             @item.Score
         </span>
     </div>

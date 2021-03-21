@@ -5,44 +5,47 @@
 
 <a class="registerHighScore-link" href="~/register/registerhighscore">Register highscore</a>
 
-<div class="game-grid">
+<div class="game-container">
     @foreach (var games in Model)
     {
+
         <div class="game-card">
-            <div class="title-link">
-                <a asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
+            <a class="title-link" asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
 
-                    <span class="title-info">
-                        @games.Title
-                    </span>
-                </a>
+                @games.Title
+            </a>
 
-                @{
-                    var first = true;
-                }
+            @{
+                var first = true;
+            }
 
-                @foreach (var score in games.AllGameScores)
+            @foreach (var score in games.AllGameScores)
+            {
+
+                @if (first)
                 {
 
-                    @if (first)
-                    {
+                    <div class="playDate">
+
                         <span class="player">
                             @(score?.Player ?? "")
                         </span>
-                        <span class="releaseYear">
+
+                        <span class="date">
                             @score?.Date.ToString("yyyy-MM-dd")
                         </span>
 
-                        <span class="CountHigscore">
+                        <span class="highScore">
                             @score?.Score
                         </span>
 
-                    }
-
-                    first = false;
+                    </div>
                 }
 
-            </div>
+                first = false;
+            }
+
         </div>
+
     }
 </div>

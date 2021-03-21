@@ -18,11 +18,11 @@ body {
   width: 100%;
 }
 
-header {
-  position: relative;
-  height: 6em;
-  background-color: #000000;
-  line-height: 90px;
+.header-container {
+    position: relative;
+    height: 6em;
+    background-color: #000000;
+    line-height: 90px;
 }
 
 h2 {
@@ -42,19 +42,49 @@ h2 {
 }
 
 /* INDEX */
-.game-grid {
-  margin-top: 5em;
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3em;
 }
 
-.title-info {
-  font-size: 1.2em;
-  font-size: 700;
+.game-card {
+  width: 60%;
+  height: 55%;
+  border: 5px solid #000000;
+  margin-bottom: 2em;
+  padding: 1em;
 }
 
 .title-link {
-  cursor: pointer;
   text-decoration: none;
-  margin-left: 2em;
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: 900;
+}
+
+.player {
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: 400;
+}
+
+.date {
+  font-size: 1rem;
+  color: #000000;
+  width: 40%;
+}
+
+.playDate {
+  width: 80%;
+}
+
+.highScore {
+  display: inline;
+  font-size: 1.4em;
+  font-weight: 900;
+  color: #000000;
 }
 
 /* DETAIL */

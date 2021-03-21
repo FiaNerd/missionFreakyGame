@@ -23,7 +23,9 @@ namespace FreakyGame.Controllers
 
             gameInfo.AllGameScores = context.RegisterScores
                 .Where(score => score.GameId == gameInfo.Id)
+                .Include(x => x.Game)
                 .Take(10)
+                .OrderByDescending(x => x.Date)
                 .ToList();
                 
 
@@ -36,15 +38,15 @@ namespace FreakyGame.Controllers
         }
 
 
-        public IActionResult GetAllDetail(int id)
-        {
-            var getDetails = context.RegisterScores
-                .Include(x => x.Game)
-                .Where(x => x.Id == id)
-                .ToList();
+        //public IActionResult GetAllDetail(int id)
+        //{
+        //    var getDetails = context.RegisterScores
+        //        .Include(x => x.Game)
+        //        .Where(x => x.Id == id)
+        //        .ToList();
 
-            return View(getDetails);
-        }
+        //    return View(getDetails);
+        //}
     }
 }
 
