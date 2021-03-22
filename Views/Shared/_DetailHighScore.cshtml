@@ -1,19 +1,24 @@
 ﻿
 @model IEnumerable<RegisterScore>
 
-@foreach (var item in Model)
-{
-    <div class="score">
-        <span class="playerList">
-            @item.Player
-        </span>
 
-        <sp class="dateList">
-            @item.Date.ToString("yyyy-MM-dd")
-        </sp>
+<div class="score-container">
 
-        <span class="higscoreList">
-            @item.Score
-        </span>
-    </div>
-}
+    @foreach (var item in Model)
+    {
+        <div class="print-container">
+            <span class="playerList">
+                @item.Player
+            </span>
+
+            <span class="dateList">
+                @item.Date.ToString("yyyy-MM-dd")
+            </span>
+
+                <span class="higScoreList">
+                    @item.Score
+                </span>
+            </div>
+    }
+
+</div>

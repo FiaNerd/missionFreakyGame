@@ -26,6 +26,7 @@ h2 {
   color: rgb(253, 253, 253);
   position: relative;
   text-align: center;
+  font-size: 3.5em;
 }
 
 /* INDEX */
@@ -45,6 +46,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .game-card {
@@ -64,26 +66,29 @@ h2 {
 }
 
 div.playerDate {
+  position: absolute;
   margin-left: 2em;
 }
 
 span.player {
+  position: absolute;
   font-size: 1.2rem;
   color: #000000;
   font-weight: 400;
-  display: block;
 }
 
 span.date {
+  position: absolute;
   font-size: 1rem;
-  color: #000000;
+  color: #505050;
+  margin-top: 2em;
 }
 
 span.highScore {
-  font-size: 1.4em;
+  font-size: 2em;
   font-weight: 900;
   color: #000000;
-  margin-left: 25em;
+  margin-left: 20em;
 }
 
 /* DETAIL */
@@ -97,6 +102,7 @@ span.highScore {
   background-color: #000000;
   margin-top: 5em;
   margin-left: 19em;
+  margin-bottom: 4em;
 }
 
 .title-game {
@@ -119,6 +125,49 @@ span.highScore {
 
 .dateDetail {
   color: #ffffff;
+}
+
+/* FROM List */
+.score-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4em;
+  margin-bottom: 3em;
+}
+
+.print-container {
+  width: 60%;
+  height: 6em;
+  border: 5px solid #000000;
+  margin-bottom: 2em;
+  padding: 1em;
+}
+
+span.playerList {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #000000;
+  font-weight: 900;
+  margin-left: 2em;
+}
+
+span.dateList {
+  position: absolute;
+  font-size: 1rem;
+  color: #505050;
+  margin-top: 2em;
+  margin-left: 2.4em;
+}
+
+span.higScoreList {
+  position: absolute;
+  font-size: 2em;
+  font-weight: 900;
+  color: #000000;
+  margin-left: 20em;
+  margin-top: 0.2em;
 }
 
 /* FORM */
@@ -184,12 +233,12 @@ html {
 
 footer {
   position: relative;
-  background-color: rgba(53, 52, 52, 0.938);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.938);
+  color: rgb(218, 218, 218);
   height: 60px;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
-  text-align: center; /* Vertically center the text there */
+  text-align: center;
 }
