@@ -68,10 +68,10 @@ div.playerDate {
 }
 
 span.player {
-  position: relative;
   font-size: 1.2rem;
   color: #000000;
   font-weight: 400;
+  display: block;
 }
 
 span.date {
@@ -83,8 +83,7 @@ span.highScore {
   font-size: 1.4em;
   font-weight: 900;
   color: #000000;
-  margin-left: 30em;
-  display: block;
+  margin-left: 25em;
 }
 
 /* DETAIL */
