@@ -14,13 +14,13 @@ namespace FreakyGame.Data.Entities
         
         public int Id { get; protected set; }
 
-        [Required]
+        [Required (ErrorMessage= "You have to enter your name")]
         public string Player { get; protected set; }
 
-        [Required]
+        [Required (ErrorMessage = "You have to enter a date")]
         public DateTime Date { get; protected set; }
 
-        [Required]
+        [Required (ErrorMessage = "You have to enter your score")]
         public int Score { get; protected set; }
 
         public int GameId { get; protected set; }
