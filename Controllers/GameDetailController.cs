@@ -5,17 +5,17 @@ using System.Linq;
 
 namespace FreakyGame.Controllers
 {
-    public class GameInfoController : Controller
+    public class GameDetailController : Controller
     {
         private readonly FreakyGameContext context;
 
-        public GameInfoController(FreakyGameContext context)
+        public GameDetailController(FreakyGameContext context)
         {
             this.context = context;
         }
 
         // GET /products/black-tshirt
-        [Route("/gameinfo/{urlSlug}", Name = "gamedetails")]
+        [Route("/gamedetails/{urlSlug}", Name = "gamedetails")]
         public IActionResult Detail(string urlSlug)
         {
             var gameInfo = context.Games
