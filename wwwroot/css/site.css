@@ -24,7 +24,7 @@ body {
   line-height: 90px;
 }
 
-h2 {
+h1 {
   color: rgb(253, 253, 253);
   position: relative;
   text-align: center;
@@ -194,12 +194,18 @@ span.higScoreList {
 
 /* FORM */
 
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
 .form-grid {
   display: flex;
   width: 40%;
   margin-bottom: 5em;
-  margin-left: 32em;
-  margin-top: 7em;
+  margin-left: 28em;
   padding: 2em;
   background-color: #000000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);

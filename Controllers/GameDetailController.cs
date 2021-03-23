@@ -42,10 +42,10 @@ namespace FreakyGame.Controllers
 
         //public IActionResult GetAllDetail(int id)
         //{
-        //    var getDetails = context.RegisterScores
-        //        .Include(x => x.Game)
-        //        .Where(x => x.Id == id)
-        //        .ToList();
+        //    //var getDetails = context.RegisterScores
+        //    //    .Include(x => x.Game)
+        //    //    .Where(x => x.Id == id)
+        //    //    .ToList();
 
         //    return View(getDetails);
         //}

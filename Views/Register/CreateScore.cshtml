@@ -1,17 +1,19 @@
 ﻿@model Game
 
+    <h2>Register highscore</h2>
+
 <div class="form-grid">
 
-    <form class="form" asp-controller="Register" asp-action="CreateRegister" method="post">
+    <form class="form" asp-controller="Register" asp-action="CreateScore" method="post">
 
         <label for="game">Choose a game:</label>
 
         <select name="game" class="game-select">
             <option value="">--Please choose a game--</option>
             <option value="tetris"></option>
-            <option value="snake"></option>
+            @*<option value="snake"></option>
             <option value="pacman"></option>
-            <option value="donky-kong"></option>
+            <option value="donky-kong"></option>*@
         </select>
 
         <label for="player-input">Game:</label>
