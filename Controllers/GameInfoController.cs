@@ -13,7 +13,7 @@ namespace FreakyGame.Controllers
         {
             this.context = context;
         }
-        
+
         // GET /products/black-tshirt
         [Route("/gameinfo/{urlSlug}", Name = "gamedetails")]
         public IActionResult Detail(string urlSlug)
@@ -24,10 +24,12 @@ namespace FreakyGame.Controllers
             gameInfo.AllGameScores = context.RegisterScores
                 .Where(score => score.GameId == gameInfo.Id)
                 .Include(x => x.Game)
-                .Take(10)
-                .OrderByDescending(x => x.Date)
                 .ToList();
-                
+
+            gameInfo.AllGameScores =
+                (from scoreList in gameInfo.AllGameScores orderby scoreList.Score descending select scoreList)
+                .Take(10)
+                .ToList();
 
             if (gameInfo == null)
             {

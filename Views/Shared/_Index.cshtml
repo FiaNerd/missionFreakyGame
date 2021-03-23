@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<a class="registerHighScore-link" href="~/register/registerhighscore">Register highscore</a>
+<a class="registerHighScore-link" href="~/register/createregister">Register highscore</a>
 
 <div class="game-container">
     @foreach (var games in Model)
@@ -15,15 +15,8 @@
                 @games.Title
             </a>
 
-            @{
-                var first = true;
-            }
-
             @foreach (var score in games.AllGameScores)
             {
-
-                @if (first)
-                {
 
                     <div class="playerDate">
 
@@ -40,9 +33,6 @@
                         </span>
 
                     </div>
-                }
-
-                first = false;
             }
 
         </div>

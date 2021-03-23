@@ -25,7 +25,8 @@ namespace FreakyGame.Controllers
             foreach (var game in allGamesFromDB)
             {
                 game.AllGameScores = 
-                    (from s in game.AllGameScores orderby s.Score descending select s)
+                    (from scoreList in game.AllGameScores orderby scoreList.Score descending select scoreList)
+                    .Take(1)
                     .ToList();
             }
 

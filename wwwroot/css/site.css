@@ -39,7 +39,15 @@ h2 {
   font-size: 1.4rem;
   top: 9em;
   margin-left: 50em;
-  line-height: 3.5em;
+  line-height: 6em;
+  padding: 0.5em;
+  border-top: 2px solid #000000;
+  border-bottom: 4px solid #000000;
+}
+
+.registerHighScore-link:hover,
+.registerHighScore-link:focus {
+  color: brown;
 }
 
 .game-container {
@@ -96,7 +104,8 @@ span.highScore {
 /* DETAIL */
 .game-details {
   display: grid;
-  grid-template-columns: 50% 35%;
+  position: relative;
+  grid-template-columns: 50% 37%;
   max-width: 60%;
   grid-gap: 0em 3em;
   padding: 1.5em;
@@ -115,6 +124,11 @@ span.highScore {
   color: #ffffff;
 }
 
+.title-link:hover,
+.title-link:focus {
+  color: brown;
+}
+
 .descriptionDetail {
   margin-bottom: 1.5em;
   color: #ffffff;
@@ -130,6 +144,12 @@ span.highScore {
 }
 
 /* FROM List */
+
+.leaderboard-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5em;
+}
+
 .score-container {
   display: flex;
   position: relative;
@@ -220,10 +240,17 @@ span.higScoreList {
   height: 14%;
   width: 28%;
   font-size: 1.2rem;
+  font-weight: 700;
   margin-top: 1em;
   border: none;
   background-color: #ffffff;
   margin-left: 8em;
+}
+
+.btn-register:hover,
+.btn-register:focus {
+  color: rgb(255, 255, 255);
+  background-color: brown;
 }
 
 /* Sticky footer styles

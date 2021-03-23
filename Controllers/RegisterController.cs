@@ -12,7 +12,7 @@ namespace FreakyGame.Controllers
             this.context = context;
         }
 
-        public IActionResult RegisterHighScore()
+        public IActionResult CreateRegister()
         {
             return View();
         }

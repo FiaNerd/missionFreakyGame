@@ -1,0 +1,29 @@
+﻿@model Game
+
+<div class="form-grid">
+
+    <form class="form" asp-controller="Register" asp-action="CreateRegister" method="post">
+
+        <label for="game">Choose a game:</label>
+
+        <select name="game" class="game-select">
+            <option value="">--Please choose a game--</option>
+            <option value="tetris"></option>
+            <option value="snake"></option>
+            <option value="pacman"></option>
+            <option value="donky-kong"></option>
+        </select>
+
+        <label for="player-input">Game:</label>
+        <input type="text" name="name" value="" placeholder="Player" />
+
+        <label for="date-input">Date:</label>
+        <input type="text" name="name" value="" placeholder="Date" />
+
+        <label for="score-input">Score:</label>
+        <input type="text" name="name" value="" placeholder="Score" />
+
+        <button class="btn-register" type="submit" name="button" value="submitButton">Register</button>
+    </form>
+
+</div>
