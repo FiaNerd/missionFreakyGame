@@ -14,6 +14,8 @@ namespace FreakyGame.Controllers
 
         public IActionResult CreateScore()
         {
+
+
             return View();
         }
 
