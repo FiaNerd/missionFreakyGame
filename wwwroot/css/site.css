@@ -214,7 +214,6 @@ h2 {
 
 .form {
   position: relative;
-  border: 3px dotted black;
   width: 70%;
   padding-bottom: 2em;
   margin-left: 5em;
@@ -239,7 +238,11 @@ h2 {
   padding-left: 0.3em;
   border: 1px solid #747474;
   border-radius: 0.2em;
-  margin-bottom: 1.2em;
+}
+
+.field-validation-error {
+  color: #e0e0e0;
+  margin-left: 1em;
 }
 
 .btn-register {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreakyGame.Extensions;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FreakyGame.Data.Entities
@@ -7,7 +8,7 @@ namespace FreakyGame.Data.Entities
     {
         public RegisterScore(string player, DateTime date, int score)
         {
-            Player = player;
+            Player = player.Slugify();
             Date = date;
             Score = score;
         }
@@ -20,13 +21,14 @@ namespace FreakyGame.Data.Entities
 
         public int Id { get; protected set; }
 
-        [Required (ErrorMessage= "You have to enter your name")]
+        [Required]
+        [MaxLength(50)]
         public string Player { get; protected set; }
 
-        [Required (ErrorMessage = "You have to enter a date")]
+        [Required]
         public DateTime Date { get; protected set; }
 
-        [Required (ErrorMessage = "You have to enter your score")]
+        [Required]
         public int Score { get; protected set; }
 
         public int GameId { get; protected set; }
