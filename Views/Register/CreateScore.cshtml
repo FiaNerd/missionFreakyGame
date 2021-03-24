@@ -1,12 +1,30 @@
-﻿@model Game
+﻿@*@using System.Collections.Generic;*@
 
-    <h2>Register highscore</h2>
+@model FreakyGame.Models.ViewModels.CreateScoreViewModel
+
+@*@model IEnumerable<Game>*@
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<h2>Register highscore</h2>
 
 <div class="form-grid">
 
     <form class="form" asp-controller="Register" asp-action="CreateScore" method="post">
 
-        <label for="game">Choose a game:</label>
+        @*<label for="game">Choose a game:</label>*@
+
+        <!--<select name="game" class="game-select">
+    <option value="">--Please choose a game--</option>
+    <option value="tetris"></option>-->
+        @*<option value="snake"></option>
+        <option value="pacman"></option>
+        <option value="donky-kong"></option>*@
+        <!--</select>-->
+
+        <label asp-for="Games"></label>
 
         <select name="game" class="game-select">
             <option value="">--Please choose a game--</option>
@@ -16,16 +34,18 @@
             <option value="donky-kong"></option>*@
         </select>
 
-        <label for="player-input">Game:</label>
-        <input type="text" name="name" value="" placeholder="Player" />
+        <label asp-for="Player"></label>
+        <input asp-for="Player" placeholder="Player" />
+        <span asp-validation-for="Player"></span>
 
-        <label for="date-input">Date:</label>
-        <input type="text" name="name" value="" placeholder="Date" />
+        <label asp-for="Date"></label>
+        <input asp-for="Date" placeholder="Date" />
+        <span asp-validation-for="Date"></span>
 
-        <label for="score-input">Score:</label>
-        <input type="text" name="name" value="" placeholder="Score" />
+        <label asp-for="Score"></label>
+        <input asp-for="Score" value="" placeholder="Score" />
+        <span asp-validation-for="Score"></span>
 
         <button class="btn-register" type="submit" name="button" value="submitButton">Register</button>
     </form>
-
 </div>

@@ -11,7 +11,13 @@ namespace FreakyGame.Data.Entities
             Date = date;
             Score = score;
         }
-        
+
+        public RegisterScore(int id, string player, DateTime date, int score)
+           : this(player, date, score)
+        {
+            Id = id;
+        }
+
         public int Id { get; protected set; }
 
         [Required (ErrorMessage= "You have to enter your name")]

@@ -1,5 +1,47 @@
 ﻿@model Game
 
-<partial name="_Detail" />
+
+@{
+    ViewData["Detail"] = "Home Page";
+    var item = Model;
+}
+
+
+<div class="game-grid">
+
+    <div class="game-details">
+
+        <div>
+            <div class="title-game">
+                <span>
+                    @item.Title
+                </span>
+            </div>
+
+            <div class="descriptionDetail">
+                <span>
+                    @item.Description
+                </span>
+            </div>
+
+            <div class="genreDetail">
+                <span>
+                    Genre: @item.Genre
+                </span>
+            </div>
+
+            <div class="dateDetail">
+                <span>
+                    Release year: @item.ReleaseYear
+                </span>
+            </div>
+        </div>
+
+        <div class="image">
+            <img src="@item.ImageUrl" alt="Image" />
+        </div>
+
+    </div>
+</div>
 
 <partial name="_DetailHighScore" model="Model.AllGameScores" />
