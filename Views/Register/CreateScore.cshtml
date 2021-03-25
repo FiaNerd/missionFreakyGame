@@ -1,38 +1,25 @@
-﻿@*@using System.Collections.Generic;*@
+﻿@using System.Collections.Generic;
 
 @model FreakyGame.Models.ViewModels.CreateScoreViewModel
 
-@*@model IEnumerable<Game>*@
-@{
-    ViewData["Title"] = "Register";
-}
+
 
 
 <h2>Register highscore</h2>
 
 <div class="form-grid">
 
+
     <form class="form" asp-controller="Register" asp-action="CreateScore" method="post">
 
-        @*<label for="game">Choose a game:</label>*@
+        <label>Game</label>
+        @*@Html.DropDownList("Title", ViewBag.select as SelectList)*@
 
-        <!--<select name="game" class="game-select">
-    <option value="">--Please choose a game--</option>
-    <option value="tetris"></option>-->
-        @*<option value="snake"></option>
-        <option value="pacman"></option>
-        <option value="donky-kong"></option>*@
-        <!--</select>-->
-
-        <label asp-for="Games"></label>
-
-        <select name="game" class="game-select">
-            <option value="">--Please choose a game--</option>
-            <option value="tetris"></option>
-            @*<option value="snake"></option>
-            <option value="pacman"></option>
-            <option value="donky-kong"></option>*@
-        </select>
+        <div class="input">
+                <select class="input-score" asp-for="GameId" asp-items="@Model.RegisterScoores">
+                    <option value="value">--Choose a game--</option>
+                </select>
+        </div>
 
         <label asp-for="Player"></label>
         <input asp-for="Player" placeholder="Player" />

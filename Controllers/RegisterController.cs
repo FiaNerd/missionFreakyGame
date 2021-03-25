@@ -2,6 +2,11 @@
 using FreakyGame.Data.Entities;
 using FreakyGame.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FreakyGame.Controllers
 {
@@ -9,49 +14,83 @@ namespace FreakyGame.Controllers
     {
         private readonly FreakyGameContext context;
 
+
         public RegisterController(FreakyGameContext context)
         {
             this.context = context;
         }
 
-        ////GET /products/black-tshirt
-        //[Route("/products/{urlSlug}", Name = "productdetails")]
-        //public ActionResult Details(string urlSlug)
-        //{
-        //    var product = context.Products
-        //        .FirstOrDefault(product => product.UrlSlug == urlSlug);
+        public IActionResult Index()
+        {
+            var highScore = context.RegisterScores.ToList();
 
-        //    return View(product);
-        //}
+            return View(highScore);
+        }
+
+
+
+        // GET: Highscores/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var highscore = await context.RegisterScores
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (highscore == null)
+            {
+                return NotFound();
+            }
+
+            return View(highscore);
+        }
+
 
         // GET /products/new
-        [Route("/register/highscore")]
+        [Route("/register/new")]
         public ActionResult CreateScore()
         {
-            // .\Views\Products\Create.cshtml
-            return View();
+            //ViewBag.select = new SelectList(context.Games.ToList(), "Id", "Title");
+
+            var listScore = new CreateScoreViewModel();
+            listScore.RegisterScoores = context.Games
+                .Select(a => new SelectListItem() {
+                    Value = a.Id.ToString(),
+                    Text = a.Title
+                })
+                .ToList();
+
+            return View(listScore);
         }
 
         // POST /products/new
         // name=lorem   &     description=ipsum   &    imageUrl=http://test.png   &   price=1
         [HttpPost]
-        [Route("/register/highscore")]
+        [ValidateAntiForgeryToken]
+        [Route("/register/new")]
         //public ActionResult Create(IFormCollection collection)
         public ActionResult CreateScore(CreateScoreViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                var highScore = new RegisterScore(
+                var newHighScore = new RegisterScore(
                     player: viewModel.Player,
                     date: viewModel.Date,
-                    score: viewModel.Score);
+                    score: viewModel.Score,
+                    gameId: viewModel.GameId);
 
-                context.RegisterScores.Add(highScore);
+                context.RegisterScores.Add(newHighScore);
 
+                
                 context.SaveChanges();
             }
 
             // .\Views\Products\Create.cshtml
+            //return RedirectToAction("Index", "Home");
+
             return View();
         }
 

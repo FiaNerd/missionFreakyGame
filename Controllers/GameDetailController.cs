@@ -38,17 +38,6 @@ namespace FreakyGame.Controllers
 
             return View(gameInfo);
         }
-
-
-        //public IActionResult GetAllDetail(int id)
-        //{
-        //    //var getDetails = context.RegisterScores
-        //    //    .Include(x => x.Game)
-        //    //    .Where(x => x.Id == id)
-        //    //    .ToList();
-
-        //    return View(getDetails);
-        //}
     }
 }
 

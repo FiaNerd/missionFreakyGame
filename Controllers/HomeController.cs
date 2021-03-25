@@ -18,7 +18,7 @@ namespace FreakyGame.Controllers
         {
             var allGamesFromDB = context.Games
                 .Include(x => x.AllGameScores)
-                .OrderByDescending(x => x.Id)
+                //.OrderByDescending(x => x.Id)
                 .ToList();
 
 

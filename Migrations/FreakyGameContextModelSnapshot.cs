@@ -66,7 +66,8 @@ namespace FreakyGame.Migrations
 
                     b.Property<string>("Player")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Score")
                         .HasColumnType("int");

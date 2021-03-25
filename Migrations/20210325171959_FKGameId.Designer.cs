@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    [Migration("20210320171625_AddGameToScore")]
-    partial class AddGameToScore
+    [Migration("20210325171959_FKGameId")]
+    partial class FKGameId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,8 @@ namespace FreakyGame.Migrations
 
                     b.Property<string>("Player")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<int>("Score")
                         .HasColumnType("int");
