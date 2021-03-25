@@ -1,9 +1,5 @@
-﻿@using System.Collections.Generic;
-
+﻿
 @model FreakyGame.Models.ViewModels.CreateScoreViewModel
-
-
-
 
 <h2>Register highscore</h2>
 
@@ -16,8 +12,8 @@
         @*@Html.DropDownList("Title", ViewBag.select as SelectList)*@
 
         <div class="input">
-                <select class="input-score" asp-for="GameId" asp-items="@Model.RegisterScoores">
-                    <option value="value">--Choose a game--</option>
+                <select class="input-score" asp-for="GameId" asp-items="@Model.ListScores">
+                    <option value="Value">--Choose a game--</option>
                 </select>
         </div>
 

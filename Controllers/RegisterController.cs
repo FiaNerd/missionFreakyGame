@@ -22,7 +22,8 @@ namespace FreakyGame.Controllers
 
         public IActionResult Index()
         {
-            var highScore = context.RegisterScores.ToList();
+            var highScore = context.RegisterScores
+                .ToList();
 
             return View(highScore);
         }
@@ -56,8 +57,9 @@ namespace FreakyGame.Controllers
             //ViewBag.select = new SelectList(context.Games.ToList(), "Id", "Title");
 
             var listScore = new CreateScoreViewModel();
-            listScore.RegisterScoores = context.Games
-                .Select(a => new SelectListItem() {
+            listScore.ListScores = context.Games
+                .Select(a => new SelectListItem()
+                {
                     Value = a.Id.ToString(),
                     Text = a.Title
                 })
@@ -84,15 +86,16 @@ namespace FreakyGame.Controllers
 
                 context.RegisterScores.Add(newHighScore);
 
-                
+
                 context.SaveChanges();
             }
 
             // .\Views\Products\Create.cshtml
-            //return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home");
 
-            return View();
+            //return View(viewModel);
         }
 
     }
 }
+

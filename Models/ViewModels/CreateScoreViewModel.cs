@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace FreakyGame.Models.ViewModels
 {
@@ -17,6 +17,6 @@ namespace FreakyGame.Models.ViewModels
         public int GameId { get; set; }
 
         //Kanske ta bort denna? 
-        public List<SelectListItem> RegisterScoores { get; set; }
+        public List<SelectListItem> ListScores { get; set; }
     }
 }

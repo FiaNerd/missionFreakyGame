@@ -42,9 +42,8 @@ namespace FreakyGame.Data.Entities
         [Required]
         public int Score { get; protected set; }
 
-        public Game Game { get; protected set; }
-
         public int GameId { get; protected set; }
 
+        public Game Game { get; protected set; }
     }
 }
