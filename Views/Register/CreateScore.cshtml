@@ -13,11 +13,12 @@
             <select class="input-score" asp-for="GameId" asp-items="@Model.ListScores">
                 <option value="Value">--Choose a game--</option>
             </select>
+            <span asp-validation-for="GameId"></span>
         </div>
 
-        <label asp-for="Player"></label>
-        <input asp-for="Player" placeholder="Player" />
-        <span asp-validation-for="Score"></span>
+            <label asp-for="Player"></label>
+            <input asp-for="Player" placeholder="Player" />
+            <span asp-validation-for="Score"></span>
 
         <label asp-for="Date"></label>
         <input asp-for="Date" placeholder="Date" />
