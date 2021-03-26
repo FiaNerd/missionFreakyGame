@@ -78,11 +78,9 @@ namespace FreakyGame.Controllers
 
 
                 context.SaveChanges();
-            }
-
             return RedirectToAction("Index", "Home");
-
-
+            }
+            return View(viewModel);
         }
 
     }
