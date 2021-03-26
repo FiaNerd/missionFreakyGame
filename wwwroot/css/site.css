@@ -24,11 +24,13 @@ body {
   line-height: 90px;
 }
 
-h1 {
+.logo {
   color: rgb(253, 253, 253);
   position: relative;
   text-align: center;
-  font-size: 3.5em;
+  justify-content: center;
+  font-size: 4em;
+  font-weight: 900;
 }
 
 /* INDEX */
@@ -151,11 +153,11 @@ span.highScore {
 
 .score-container {
   display: flex;
-  position: relative;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   margin-top: 4em;
-  margin-bottom: 3em;
+  margin-bottom: 9em;
 }
 
 .print-container {
