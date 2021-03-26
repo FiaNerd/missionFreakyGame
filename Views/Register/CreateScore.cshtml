@@ -1,5 +1,4 @@
-﻿
-@model FreakyGame.Models.ViewModels.CreateScoreViewModel
+﻿@model FreakyGame.Models.ViewModels.CreateScoreViewModel
 
 <h2>Register highscore</h2>
 
@@ -9,7 +8,6 @@
     <form class="form" asp-controller="Register" asp-action="CreateScore" method="post">
 
         <label>Game</label>
-        @*@Html.DropDownList("Title", ViewBag.select as SelectList)*@
 
         <div class="input">
                 <select class="input-score" asp-for="GameId" asp-items="@Model.ListScores">
@@ -31,4 +29,5 @@
 
         <button class="btn-register" type="submit" name="button" value="submitButton">Register</button>
     </form>
+
 </div>

@@ -31,7 +31,7 @@ namespace FreakyGame.Data.Entities
         [MaxLength(50)]
         public string UrlSlug { get; protected set; }
 
-        public List<RegisterScore> AllGameScores { get; set; }
+        public ICollection<RegisterScore> AllGameScores { get; set; }
 
     }
 }

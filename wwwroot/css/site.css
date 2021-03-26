@@ -38,7 +38,7 @@ h1 {
   font-weight: 900;
   font-size: 1.4rem;
   top: 9em;
-  margin-left: 45em;
+  margin-left: 48.5em;
   line-height: 7em;
   padding: 0.5em;
   border: 5px solid #000000;
@@ -97,7 +97,7 @@ span.highScore {
   font-size: 2em;
   font-weight: 900;
   color: #000000;
-  margin-left: 17em;
+  margin-left: 19em;
 }
 
 /* DETAIL */
@@ -236,6 +236,7 @@ h2 {
   padding-left: 0.3em;
   border: 1px solid #747474;
   border-radius: 0.2em;
+  margin-bottom: 1em;
 }
 
 .field-validation-error {
@@ -260,9 +261,6 @@ h2 {
   color: rgb(255, 255, 255);
   background-color: brown;
 }
-
-/* Sticky footer styles
--------------------------------------------------- */
 
 .footer {
   position: absolute;

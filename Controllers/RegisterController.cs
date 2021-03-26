@@ -4,7 +4,6 @@ using FreakyGame.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,9 +27,7 @@ namespace FreakyGame.Controllers
             return View(highScore);
         }
 
-
-
-        // GET: Highscores/Details/5
+      
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,13 +46,9 @@ namespace FreakyGame.Controllers
             return View(highscore);
         }
 
-
-        // GET /products/new
         [Route("/register/new")]
         public ActionResult CreateScore()
         {
-            //ViewBag.select = new SelectList(context.Games.ToList(), "Id", "Title");
-
             var listScore = new CreateScoreViewModel();
             listScore.ListScores = context.Games
                 .Select(a => new SelectListItem()
@@ -68,12 +61,9 @@ namespace FreakyGame.Controllers
             return View(listScore);
         }
 
-        // POST /products/new
-        // name=lorem   &     description=ipsum   &    imageUrl=http://test.png   &   price=1
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("/register/new")]
-        //public ActionResult Create(IFormCollection collection)
         public ActionResult CreateScore(CreateScoreViewModel viewModel)
         {
             if (ModelState.IsValid)
@@ -90,10 +80,9 @@ namespace FreakyGame.Controllers
                 context.SaveChanges();
             }
 
-            // .\Views\Products\Create.cshtml
             return RedirectToAction("Index", "Home");
 
-            //return View(viewModel);
+
         }
 
     }
