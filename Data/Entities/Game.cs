@@ -25,11 +25,11 @@ namespace FreakyGame.Data.Entities
         }
 
        
-        public Game(int id,string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
-            : this(title, description, releaseYear, imageUrl, urlSlug)
-        {
-            Id = id;
-        }
+        //public Game(int id,string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
+        //    : this(title, description, releaseYear, imageUrl, urlSlug)
+        //{
+        //    Id = id;
+        //}
 
 
         public int Id { get; protected set; }
@@ -44,8 +44,6 @@ namespace FreakyGame.Data.Entities
 
         public Uri ImageUrl { get; protected set; }
 
-        [Required]
-        [MaxLength(50)]
         public string UrlSlug { get; protected set; }
 
         public ICollection<RegisterScore> AllGameScores { get; set; }

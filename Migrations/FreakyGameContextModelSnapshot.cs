@@ -42,9 +42,7 @@ namespace FreakyGame.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlSlug")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
