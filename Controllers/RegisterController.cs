@@ -49,7 +49,7 @@ namespace FreakyGame.Controllers
         [Route("/register/new")]
         public ActionResult CreateScore()
         {
-            var listScore = new CreateScoreViewModel();
+            var listScore = new CreateGameViewModel();
             listScore.ListScores = context.Games
                 .Select(a => new SelectListItem()
                 {
@@ -64,7 +64,7 @@ namespace FreakyGame.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("/register/new")]
-        public ActionResult CreateScore(CreateScoreViewModel viewModel)
+        public ActionResult CreateScore(CreateGameViewModel viewModel)
         {
             if (ModelState.IsValid)
             {

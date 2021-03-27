@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
 
-namespace FreakyGame.Area.Admin
+namespace FreakyGame.Area.Admin.Controllers
 {
     [Area("Admin")]
     public class GamesController : Controller

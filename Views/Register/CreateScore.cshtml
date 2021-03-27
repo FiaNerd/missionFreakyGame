@@ -1,4 +1,4 @@
-﻿@model FreakyGame.Models.ViewModels.CreateScoreViewModel
+﻿@model FreakyGame.Models.ViewModels.CreateGameViewModel
 
 <h2>Register highscore</h2>
 
@@ -16,9 +16,9 @@
             <span asp-validation-for="GameId"></span>
         </div>
 
-            <label asp-for="Player"></label>
-            <input asp-for="Player" placeholder="Player" />
-            <span asp-validation-for="Score"></span>
+        <label asp-for="Player"></label>
+        <input asp-for="Player" placeholder="Player" />
+        <span asp-validation-for="Score"></span>
 
         <label asp-for="Date"></label>
         <input asp-for="Date" placeholder="Date" />
@@ -32,3 +32,4 @@
     </form>
 
 </div>
+
