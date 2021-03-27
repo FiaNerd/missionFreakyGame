@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
+using FreakyGame.Areas.Admin.Models.ViewModels;
 
 namespace FreakyGame.Area.Admin.Controllers
 {
@@ -20,10 +21,11 @@ namespace FreakyGame.Area.Admin.Controllers
         // GET: Admin/Games
         public async Task<IActionResult> Index()
         {
+            //.\Areas\Admin\Views\Games\Index.cshtml
             return View(await context.Games.ToListAsync());
         }
 
-        // GET: Games/Details/5
+        // GET: Admin/Games/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,25 +44,35 @@ namespace FreakyGame.Area.Admin.Controllers
         }
 
         // GET: Games/Create
+        //[Route("/admin/games")]
         public IActionResult Create()
         {
+            // .\Areas\Admin\Views\Games\Create.cshtml
             return View();
         }
+
 
         // POST: Games/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Genre,ReleaseYear,ImageUrl,UrlSlug")] Game game)
+        [Route("/admin/games")]
+        public async Task<IActionResult> Create(CreateGameViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                context.Add(game);
+                var newHighScore = new Game(
+                   title: viewModel.Title,
+                   description: viewModel.Description,
+                   releaseYear: viewModel.ReleaseYear,
+                   imageUrl: viewModel.ImageUrl);
+
+                context.Add(newHighScore);
                 await context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(game);
+            return View(viewModel);
         }
 
         // GET: Games/Edit/5

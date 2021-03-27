@@ -19,21 +19,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            @*<th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>*@
-            @*<th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>*@
+
             <th>
                 @Html.DisplayNameFor(model => model.ReleaseYear)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>*@
-            @*<th>
-                @Html.DisplayNameFor(model => model.UrlSlug)
-            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -47,21 +36,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>*@
-            @*<td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>*@
+           
             <td>
                 @Html.DisplayFor(modelItem => item.ReleaseYear)
             </td>
-            @*<td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>*@
-            @*<td>
-            @Html.DisplayFor(modelItem => item.UrlSlug)
-        </td>*@
+          
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

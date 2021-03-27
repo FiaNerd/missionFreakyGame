@@ -6,6 +6,15 @@ namespace FreakyGame.Data.Entities
 {
     public class Game
     {
+        public Game(string title, string description, string releaseYear, Uri imageUrl)
+        {
+            Title = title;
+            Description = description;
+            ReleaseYear = releaseYear;
+            ImageUrl = imageUrl;
+        }
+
+
         public Game(string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
         {
             Title = title;
@@ -15,6 +24,7 @@ namespace FreakyGame.Data.Entities
             UrlSlug = urlSlug;
         }
 
+
         public int Id { get; protected set; }
         
         public string Title { get; protected set; }
@@ -23,7 +33,7 @@ namespace FreakyGame.Data.Entities
 
         public string Genre { get; protected set; }
 
-        public string ReleaseYear { get; set; }
+        public string ReleaseYear { get; protected set; }
 
         public Uri ImageUrl { get; protected set; }
 

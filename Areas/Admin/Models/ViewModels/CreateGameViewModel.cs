@@ -7,25 +7,25 @@ namespace FreakyGame.Areas.Admin.Models.ViewModels
 {
     public class CreateGameViewModel
     {
-        public int Id { get; protected set; }
+        public int Id { get; set; }
 
         [Required]
-        public string Title { get; protected set; }
+        public string Title { get; set; }
 
         [Required]
-        public string Description { get; protected set; }
+        public string Description { get; set; }
 
-        public string Genre { get; protected set; }
+        public string Genre { get; set; }
 
         [Required]
         public string ReleaseYear { get; set; }
 
         [Required]
-        public Uri ImageUrl { get; protected set; }
+        public Uri ImageUrl { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string UrlSlug { get; protected set; }
+        public string UrlSlug { get; set; }
 
 
         public List<SelectListItem> ListGames { get; set; }
