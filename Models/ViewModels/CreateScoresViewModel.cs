@@ -2,9 +2,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace FreakyGame.Areas.Admin.Models.ViewModels
+
+namespace FreakyGame.Models.ViewModels
 {
-    public class ScoresViewModel
+    public class CreateScoreViewModel
     {
         public string Player { get; set; }
 
@@ -14,6 +15,7 @@ namespace FreakyGame.Areas.Admin.Models.ViewModels
 
         public int GameId { get; set; }
 
+        //Kanske ta bort denna? 
         public List<SelectListItem> ListScores { get; set; }
     }
 }

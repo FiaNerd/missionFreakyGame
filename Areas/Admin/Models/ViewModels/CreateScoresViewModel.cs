@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FreakyGame.Models.ViewModels
+namespace FreakyGame.Areas.Admin.Models.ViewModels
 {
     public class CreateScoresViewModel
     {

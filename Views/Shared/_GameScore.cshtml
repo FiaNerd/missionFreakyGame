@@ -1,0 +1,30 @@
+﻿
+<a class="registerHighScore-link" href="#"> Register highscore</a>
+
+<div class="game-grid">
+    @foreach (var games in Model)
+    {
+        <div class="game-card">
+            <div class="title-link">
+                <a asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
+
+                    <span class="title-info">
+                        @games.Title
+                    </span>
+                </a>
+
+                @*TODO: Lägg in spelare namn och datum*@
+                <span class="player">
+                    Jon Schaffer
+                </span>
+                <span class="releaseYear">
+                    2019-02-03
+                </span>
+
+                <span class="CountHigscore">
+                    220 000
+                </span>
+            </div>
+        </div>
+    }
+</div>
