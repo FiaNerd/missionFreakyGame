@@ -24,6 +24,13 @@ namespace FreakyGame.Data.Entities
             UrlSlug = urlSlug;
         }
 
+       
+        public Game(int id,string title, string description, string releaseYear, Uri imageUrl, string urlSlug)
+            : this(title, description, releaseYear, imageUrl, urlSlug)
+        {
+            Id = id;
+        }
+
 
         public int Id { get; protected set; }
         

@@ -24,7 +24,7 @@ namespace FreakyGame.Controllers
 
             foreach (var game in allGamesFromDB)
             {
-                game.AllGameScores = 
+                game.AllGameScores =
                     (from scoreList in game.AllGameScores orderby scoreList.Score descending select scoreList)
                     .Take(1)
                     .ToList();
@@ -40,6 +40,12 @@ namespace FreakyGame.Controllers
                 .FirstOrDefault(x => x.Id == id);
 
             return View(allGamesFromDB);
+        }
+
+        //GET /Home/Error
+        public IActionResult Error()
+        {
+            return View();
         }
     }
 }

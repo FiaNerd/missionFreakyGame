@@ -46,7 +46,7 @@ namespace FreakyGame.Controllers
             return View(highscore);
         }
 
-        [Route("/register/new")]
+        //[Route("/register/new")]
         public ActionResult CreateScore()
         {
             var listScore = new CreateGameViewModel();
@@ -63,7 +63,7 @@ namespace FreakyGame.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("/register/new")]
+        //[Route("/register/new")]
         public ActionResult CreateScore(CreateGameViewModel viewModel)
         {
             if (ModelState.IsValid)

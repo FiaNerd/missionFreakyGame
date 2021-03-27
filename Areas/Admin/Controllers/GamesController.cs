@@ -22,7 +22,8 @@ namespace FreakyGame.Area.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             //.\Areas\Admin\Views\Games\Index.cshtml
-            return View(await context.Games.ToListAsync());
+            return View(await context.Games
+                .ToListAsync());
         }
 
         // GET: Admin/Games/Details/5
@@ -57,19 +58,21 @@ namespace FreakyGame.Area.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("/admin/games")]
+        //[Route("/admin/games")]
         public async Task<IActionResult> Create(CreateGameViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                var newHighScore = new Game(
-                   title: viewModel.Title,
-                   description: viewModel.Description,
-                   releaseYear: viewModel.ReleaseYear,
-                   imageUrl: viewModel.ImageUrl);
+                var newGame = new Game(
+                   viewModel.Title,
+                   viewModel.Description,
+                   viewModel.ReleaseYear,
+                   viewModel.ImageUrl);
 
-                context.Add(newHighScore);
+                context.Add(newGame);
+
                 await context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(viewModel);

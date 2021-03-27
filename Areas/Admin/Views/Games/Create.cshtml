@@ -1,6 +1,4 @@
-﻿@*@model FreakyGame.Data.Entities.Game*@
-
-@model FreakyGame.Areas.Admin.Models.ViewModels.CreateGameViewModel
+﻿@model FreakyGame.Areas.Admin.Models.ViewModels.CreateGameViewModel
 
 
 @{
@@ -24,7 +22,7 @@
 
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control w-75" />
+                <textarea asp-for="Description" class="form-control w-75"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
