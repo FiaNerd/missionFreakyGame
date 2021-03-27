@@ -17,7 +17,7 @@ namespace FreakyGame.Area.Admin.Controllers
             this.context = context;
         }
 
-        // GET: Games
+        // GET: Admin/Games
         public async Task<IActionResult> Index()
         {
             return View(await context.Games.ToListAsync());

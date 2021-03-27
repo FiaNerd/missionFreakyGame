@@ -23,7 +23,7 @@ namespace FreakyGame.Data.Entities
 
         public string Genre { get; protected set; }
 
-        public int ReleaseYear { get; set; }
+        public string ReleaseYear { get; set; }
 
         public Uri ImageUrl { get; protected set; }
 
