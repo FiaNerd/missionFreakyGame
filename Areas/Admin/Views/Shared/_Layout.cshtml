@@ -13,7 +13,7 @@
 
     <!-- Favicons -->
     <meta name="theme-color" content="#7952b3">
-      
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -31,12 +31,12 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="~/css/admin.css" rel="stylesheet">
+    @*<link href="~/css/admin.css" rel="stylesheet">*@
 </head>
 <body>
 
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" asp-action="Index">Admininistration</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="\admin\games">Admininistration</a>
     </header>
 
     <div class="container-fluid">
@@ -45,17 +45,18 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" asp-action="index">
+                            @*<a class="nav-link active" aria-current="page" asp-action="index">*@
+                            <a class="nav-link active" aria-current="page" href="\admin\games">
                                 <span data-feather="home"></span>
                                 Games
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="\Admin\highscores">
-                                    <span data-feather="file"></span>
-                                    High Scores
+                            <a class="nav-link" href="\admin\highscores">
+                                <span data-feather="highscores"></span>
+                                High Scores
                             </a>
-</li>
+                        </li>
                     </ul>
                 </div>
             </nav>
