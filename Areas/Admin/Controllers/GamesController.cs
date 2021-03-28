@@ -18,15 +18,14 @@ namespace FreakyGame.Area.Admin.Controllers
             this.context = context;
         }
 
-        // GET: Admin/Games
+
         public async Task<IActionResult> Index()
         {
-            //.\Areas\Admin\Views\Games\Index.cshtml
             return View(await context.Games
                 .ToListAsync());
         }
 
-        // GET: Admin/Games/Details/5
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,30 +43,24 @@ namespace FreakyGame.Area.Admin.Controllers
             return View(game);
         }
 
-        // GET: Games/Create
-        //[Route("/admin/games")]
+
         public IActionResult Create()
         {
-            // .\Areas\Admin\Views\Games\Create.cshtml
             return View();
         }
 
 
-        // POST: Games/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Route("/admin/games")]
         public async Task<IActionResult> Create(CreateGameViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 var newGame = new Game(
-                   viewModel.Title,
-                   viewModel.Description,
-                   viewModel.ReleaseYear,
-                   viewModel.ImageUrl);
+                    viewModel.Title,
+                    viewModel.Description,
+                    viewModel.ReleaseYear,
+                    viewModel.ImageUrl);
 
                 context.Add(newGame);
 
@@ -94,12 +87,14 @@ namespace FreakyGame.Area.Admin.Controllers
             return View(game);
         }
 
-        // POST: Games/Edit/5
+        ////POST: Games/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, CreateGameViewModel viewModel)
 
         {
+            var game = context.Games.FirstOrDefault(x => x.Id == id);
+
             if (id != viewModel.Id)
             {
                 return NotFound();
@@ -109,13 +104,12 @@ namespace FreakyGame.Area.Admin.Controllers
             {
                 try
                 {
-                    var newGame = new Game(
-                        viewModel.Title,
-                        viewModel.Description,
-                        viewModel.ReleaseYear,
-                        viewModel.ImageUrl);
+                    var updateGame = new Game(
+                           game.Title = viewModel.Title,
+                           game.Description = viewModel.Description,
+                           game.ReleaseYear = viewModel.ReleaseYear,
+                           game.ImageUrl = viewModel.ImageUrl);
 
-                    context.Update(newGame);
                     await context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -134,38 +128,39 @@ namespace FreakyGame.Area.Admin.Controllers
             return View(viewModel);
         }
 
+
         // GET: Games/Delete/5
         public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
             {
-                return NotFound();
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var game = await context.Games
+                    .FirstOrDefaultAsync(m => m.Id == id);
+                if (game == null)
+                {
+                    return NotFound();
+                }
+
+                return View(game);
             }
 
-            var game = await context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (game == null)
+            // POST: Games/Delete/5
+            [HttpPost, ActionName("Delete")]
+            [ValidateAntiForgeryToken]
+            public async Task<IActionResult> DeleteConfirmed(int id)
             {
-                return NotFound();
+                var game = await context.Games.FindAsync(id);
+                context.Games.Remove(game);
+                await context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
 
-            return View(game);
-        }
-
-        // POST: Games/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var game = await context.Games.FindAsync(id);
-            context.Games.Remove(game);
-            await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool GameExists(int id)
-        {
-            return context.Games.Any(e => e.Id == id);
+            private bool GameExists(int id)
+            {
+                return context.Games.Any(e => e.Id == id);
+            }
         }
     }
-}

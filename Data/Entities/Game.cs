@@ -34,17 +34,17 @@ namespace FreakyGame.Data.Entities
 
         public int Id { get; protected set; }
         
-        public string Title { get; protected set; }
+        public string Title { get; set; }
 
-        public string Description { get; protected set; }
+        public string Description { get; set; }
 
-        public string Genre { get; protected set; }
+        public string Genre { get; set; }
 
-        public string ReleaseYear { get; protected set; }
+        public string ReleaseYear { get; set; }
 
-        public Uri ImageUrl { get; protected set; }
+        public Uri ImageUrl { get; set; }
 
-        public string UrlSlug { get; protected set; }
+        public string UrlSlug { get; set; }
 
         public ICollection<RegisterScore> AllGameScores { get; set; }
 
