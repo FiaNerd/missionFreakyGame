@@ -17,6 +17,20 @@ body {
   margin-bottom: 100px;
 }
 
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
 .header-container {
   position: relative;
   height: 6em;
@@ -153,7 +167,6 @@ span.highScore {
 
 .score-container {
   display: flex;
-  position: absolute;
   flex-direction: column;
   align-items: center;
   margin-top: 4em;
@@ -275,3 +288,16 @@ h2 {
   text-align: center;
   color: #ffffff;
 }
+
+/* ADMIN INDEX */
+.nav-link.active a {
+  color: #000000;
+}
+/* 
+a {
+  color: black;
+}
+
+.nav-item {
+  color: black;
+} */
