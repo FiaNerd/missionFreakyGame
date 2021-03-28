@@ -95,13 +95,12 @@ namespace FreakyGame.Area.Admin.Controllers
         }
 
         // POST: Games/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Genre,ReleaseYear,ImageUrl,UrlSlug")] Game game)
+        public async Task<IActionResult> Edit(int id, CreateGameViewModel viewModel)
+
         {
-            if (id != game.Id)
+            if (id != viewModel.Id)
             {
                 return NotFound();
             }
@@ -110,12 +109,18 @@ namespace FreakyGame.Area.Admin.Controllers
             {
                 try
                 {
-                    context.Update(game);
+                    var newGame = new Game(
+                        viewModel.Title,
+                        viewModel.Description,
+                        viewModel.ReleaseYear,
+                        viewModel.ImageUrl);
+
+                    context.Update(newGame);
                     await context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GameExists(game.Id))
+                    if (!GameExists(viewModel.Id))
                     {
                         return NotFound();
                     }
@@ -126,7 +131,7 @@ namespace FreakyGame.Area.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(game);
+            return View(viewModel);
         }
 
         // GET: Games/Delete/5
