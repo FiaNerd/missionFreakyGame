@@ -80,20 +80,31 @@ namespace FreakyGame.Area.Admin.Controllers
             }
 
             var game = await context.Games.FindAsync(id);
+           
             if (game == null)
             {
                 return NotFound();
             }
-            return View(game);
+
+            var viewModel = new EditGameViewModel
+            {
+                Id = game.Id,
+                Title = game.Title,
+                Description = game.Description,
+                ReleaseYear = game.ReleaseYear,
+                ImageUrl = game.ImageUrl
+
+            };
+
+            return View(viewModel);
         }
 
         ////POST: Games/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, CreateGameViewModel viewModel)
+        public async Task<IActionResult> Edit(int id, EditGameViewModel viewModel)
 
         {
-            var game = context.Games.FirstOrDefault(x => x.Id == id);
 
             if (id != viewModel.Id)
             {
@@ -102,13 +113,16 @@ namespace FreakyGame.Area.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+                  var newGame = new Game(
+                           viewModel.Id,
+                           viewModel.Title,
+                           viewModel.Description,
+                           viewModel.ReleaseYear,
+                           viewModel.ImageUrl);
+
                 try
                 {
-                    var updateGame = new Game(
-                           game.Title = viewModel.Title,
-                           game.Description = viewModel.Description,
-                           game.ReleaseYear = viewModel.ReleaseYear,
-                           game.ImageUrl = viewModel.ImageUrl);
+                    context.Update(newGame);
 
                     await context.SaveChangesAsync();
                 }
@@ -132,19 +146,19 @@ namespace FreakyGame.Area.Admin.Controllers
         // GET: Games/Delete/5
         public async Task<IActionResult> Delete(int? id)
             {
-                if (id == null)
-                {
-                    return NotFound();
-                }
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-                var game = await context.Games
-                    .FirstOrDefaultAsync(m => m.Id == id);
-                if (game == null)
-                {
-                    return NotFound();
-                }
+            var game = await context.Games
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (game == null)
+            {
+                return NotFound();
+            }
 
-                return View(game);
+            return View(game);
             }
 
             // POST: Games/Delete/5
