@@ -1,6 +1,6 @@
 USE FreakyGame
 
-SELECT * FROM RegisterScores
+SELECT * FROM HighScores
 SELECT * FROM Games
 
 INSERT INTO Games(Title, Description, Genre, ReleaseYear, ImageUrl, UrlSlug)
