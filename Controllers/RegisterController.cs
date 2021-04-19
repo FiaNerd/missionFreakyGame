@@ -21,7 +21,7 @@ namespace FreakyGame.Controllers
 
         public IActionResult Index()
         {
-            var highScore = context.RegisterScores
+            var highScore = context.HighScores
                 .ToList();
 
             return View(highScore);
@@ -34,7 +34,7 @@ namespace FreakyGame.Controllers
                 return NotFound();
             }
 
-            var highscore = await context.RegisterScores
+            var highscore = await context.HighScores
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (highscore == null)
@@ -74,13 +74,13 @@ namespace FreakyGame.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newHighScore = new RegisterScore(
+                var newHighScore = new HighScore(
                     player: viewModel.Player,
                     date: viewModel.Date,
                     score: viewModel.Score,
                     gameId: viewModel.GameId);
 
-                context.RegisterScores.Add(newHighScore);
+                context.HighScores.Add(newHighScore);
 
 
                 context.SaveChanges();

@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FreakyGame.Data.Entities
 {
-    public class RegisterScore
+    public class HighScore
     {
-        public RegisterScore(string player, DateTime date, int score)
+        public HighScore(string player, DateTime date, int score)
         {
             Player = player;
             Date = date;
             Score = score;
         }
 
-        public RegisterScore(string player, DateTime date, int score, int gameId)
+        public HighScore(string player, DateTime date, int score, int gameId)
         {
             Player = player;
             Date = date;
@@ -20,7 +20,7 @@ namespace FreakyGame.Data.Entities
             GameId = gameId;
         }
 
-        public RegisterScore(int id, string player, DateTime date, int score)
+        public HighScore(int id, string player, DateTime date, int score)
         {
             Id = id;
             Player = player;
