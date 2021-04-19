@@ -26,9 +26,6 @@ namespace FreakyGame.Controllers
 
             return View(highScore);
         }
-
-
-
         // GET: Highscores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -92,8 +89,8 @@ namespace FreakyGame.Controllers
             // .\Views\Products\Create.cshtml
             return RedirectToAction("Index", "Home");
 
-            //return View(viewModel);
         }
+        //return View(viewModel);
 
     }
 }

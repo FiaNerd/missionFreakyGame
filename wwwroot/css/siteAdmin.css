@@ -67,6 +67,20 @@ a#link-backToList {
   margin-left: 4em;
 }
 
+.logout {
+ color: #ffffff;
+ font-size: 1.5rem;
+ margin-right: 9.5em;
+}
+
+.logout:hover,
+.logout:active,
+.logout:focus{
+    color: darkgrey;
+    font-size: 1.5rem;
+    margin-right: 9.5em;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;

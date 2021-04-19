@@ -40,11 +40,29 @@ body {
 
 .logo {
   color: rgb(253, 253, 253);
-  position: relative;
+  text-decoration: none;
+  position: absolute;
   text-align: center;
   justify-content: center;
   font-size: 4em;
   font-weight: 900;
+  margin-left: 9em;
+}
+
+.login {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 48.7em;
+}
+
+.login:hover,
+.login:active,
+.login:focus {
+    color: darkgrey;
+    font-size: 1.5rem;
+    margin-left: 48.7em;
 }
 
 /* INDEX */
