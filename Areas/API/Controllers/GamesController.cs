@@ -10,47 +10,47 @@ namespace FreakyGame.Areas.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HighScoresController : ControllerBase
+    public class GamesController : ControllerBase
     {
         private readonly FreakyGameContext context;
 
-        public HighScoresController(FreakyGameContext context)
+        public GamesController(FreakyGameContext context)
         {
             this.context = context;
         }
 
-        // GET: api/HighScores
+        // GET: api/Games
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<HighScore>>> GetRegisterScores()
+        public async Task<ActionResult<IEnumerable<Game>>> GetGames()
         {
-            return await context.HighScores.ToListAsync();
+            return await context.Games.ToListAsync();
         }
 
-        // GET: api/HighScores/5
+        // GET: api/Games/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<HighScore>> GetHighScore(int id)
+        public async Task<ActionResult<Game>> GetGame(int id)
         {
-            var highScore = await context.HighScores.FindAsync(id);
+            var game = await context.Games.FindAsync(id);
 
-            if (highScore == null)
+            if (game == null)
             {
                 return NotFound();
             }
 
-            return highScore;
+            return game;
         }
 
-        // PUT: api/HighScores/5
+        // PUT: api/Games/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHighScore(int id, HighScore highScore)
+        public async Task<IActionResult> PutGame(int id, Game game)
         {
-            if (id != highScore.Id)
+            if (id != game.Id)
             {
                 return BadRequest();
             }
 
-            context.Entry(highScore).State = EntityState.Modified;
+            context.Entry(game).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace FreakyGame.Areas.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!HighScoreExists(id))
+                if (!GameExists(id))
                 {
                     return NotFound();
                 }
@@ -71,36 +71,36 @@ namespace FreakyGame.Areas.API.Controllers
             return NoContent();
         }
 
-        // POST: api/HighScores
+        // POST: api/Games
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<HighScore>> PostHighScore(HighScore highScore)
+        public async Task<ActionResult<Game>> PostGame(Game game)
         {
-            context.HighScores.Add(highScore);
+            context.Games.Add(game);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction("GetHighScore", new { id = highScore.Id }, highScore);
+            return CreatedAtAction("GetGame", new { id = game.Id }, game);
         }
 
-        // DELETE: api/HighScores/5
+        // DELETE: api/Games/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteHighScore(int id)
+        public async Task<IActionResult> DeleteGame(int id)
         {
-            var highScore = await context.HighScores.FindAsync(id);
-            if (highScore == null)
+            var game = await context.Games.FindAsync(id);
+            if (game == null)
             {
                 return NotFound();
             }
 
-            context.HighScores.Remove(highScore);
+            context.Games.Remove(game);
             await context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool HighScoreExists(int id)
+        private bool GameExists(int id)
         {
-            return context.HighScores.Any(e => e.Id == id);
+            return context.Games.Any(e => e.Id == id);
         }
     }
 }
