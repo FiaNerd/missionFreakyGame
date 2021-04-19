@@ -17,6 +17,20 @@ body {
   margin-bottom: 100px;
 }
 
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
 .header-container {
   position: relative;
   height: 6em;
@@ -24,11 +38,31 @@ body {
   line-height: 90px;
 }
 
-h1 {
+.logo {
   color: rgb(253, 253, 253);
-  position: relative;
+  text-decoration: none;
+  position: absolute;
   text-align: center;
-  font-size: 3.5em;
+  justify-content: center;
+  font-size: 4em;
+  font-weight: 900;
+  margin-left: 9em;
+}
+
+.login {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 48.7em;
+}
+
+.login:hover,
+.login:active,
+.login:focus {
+    color: darkgrey;
+    font-size: 1.5rem;
+    margin-left: 48.7em;
 }
 
 /* INDEX */
@@ -38,12 +72,10 @@ h1 {
   font-weight: 900;
   font-size: 1.4rem;
   top: 9em;
-  margin-left: 50em;
-  line-height: 6em;
-  padding: 0.5em;
-  /* border: 4px solid #000000; */
-  border-top: 6px solid #000000;
-  border-bottom: 6px solid #000000;
+  margin-left: 48.5em;
+  line-height: 7em;
+  padding: 0.8em 0.6em;
+  border: 5px solid #000000;
 }
 
 .registerHighScore-link:hover,
@@ -56,7 +88,7 @@ h1 {
   position: relative;
   flex-direction: column;
   align-items: center;
-  margin-top: 3em;
+  margin-top: 0.8em;
   margin-bottom: 3em;
 }
 
@@ -99,7 +131,7 @@ span.highScore {
   font-size: 2em;
   font-weight: 900;
   color: #000000;
-  margin-left: 20em;
+  margin-left: 19em;
 }
 
 /* DETAIL */
@@ -153,11 +185,10 @@ span.highScore {
 
 .score-container {
   display: flex;
-  position: relative;
   flex-direction: column;
   align-items: center;
   margin-top: 4em;
-  margin-bottom: 3em;
+  margin-bottom: 9em;
 }
 
 .print-container {
@@ -198,8 +229,9 @@ span.higScoreList {
 h2 {
   display: flex;
   justify-content: center;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .form-grid {
@@ -223,12 +255,13 @@ h2 {
   display: block;
   color: #fff;
   margin-bottom: 0.3em;
+  margin-top: 0.8em;
 }
 
 .form select {
   height: 2.4em;
   width: 100%;
-  margin-bottom: 1.2em;
+  margin-bottom: 0.3em;
 }
 
 .form input {
@@ -238,6 +271,7 @@ h2 {
   padding-left: 0.3em;
   border: 1px solid #747474;
   border-radius: 0.2em;
+  margin-bottom: 0.3em;
 }
 
 .field-validation-error {
@@ -263,9 +297,6 @@ h2 {
   background-color: brown;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-
 .footer {
   position: absolute;
   bottom: 0;
@@ -275,4 +306,9 @@ h2 {
   background-color: #000000;
   text-align: center;
   color: #ffffff;
+}
+
+/* ADMIN INDEX */
+.nav-link.active a {
+  color: #000000;
 }

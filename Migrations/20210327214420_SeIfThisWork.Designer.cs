@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    [Migration("20210325171959_FKGameId")]
-    partial class FKGameId
+    [Migration("20210327214420_SeIfThisWork")]
+    partial class SeIfThisWork
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,7 @@ namespace FreakyGame.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UrlSlug")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

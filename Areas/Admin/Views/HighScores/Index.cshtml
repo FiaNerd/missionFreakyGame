@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FreakyGame.Data.Entities.RegisterScore>
+
+@{
+    ViewData["Title"] = "HighScores";
+}
+
+<h1>Highscores</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

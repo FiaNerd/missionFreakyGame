@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FreakyGame.Migrations
 {
-    public partial class FKGameId : Migration
+    public partial class SeIfThisWork : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,7 @@ namespace FreakyGame.Migrations
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReleaseYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UrlSlug = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    UrlSlug = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

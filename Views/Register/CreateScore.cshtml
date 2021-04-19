@@ -9,24 +9,24 @@
     <form class="form" asp-controller="Register" asp-action="CreateScore" method="post">
 
         <label>Game</label>
-        @*@Html.DropDownList("Title", ViewBag.select as SelectList)*@
 
         <div class="input">
-                <select class="input-score" asp-for="GameId" asp-items="@Model.ListScores">
-                    <option value="Value">--Choose a game--</option>
-                </select>
+            <select class="input-score" asp-for="GameId" asp-items="@Model.ListScores">
+                <option value="">--Choose a game--</option>
+            </select>
         </div>
+            <span asp-validation-for="GameId"></span>
 
         <label asp-for="Player"></label>
-        <input asp-for="Player" placeholder="Player" />
+        <input asp-for="Player" value="" placeholder="Enter your name" />
         <span asp-validation-for="Player"></span>
 
         <label asp-for="Date"></label>
-        <input asp-for="Date" placeholder="Date" />
+        <input asp-for="Date" value=""/>
         <span asp-validation-for="Date"></span>
 
         <label asp-for="Score"></label>
-        <input asp-for="Score" value="" placeholder="Score" />
+        <input asp-for="Score" value="" placeholder="Enter your highscore" />
         <span asp-validation-for="Score"></span>
 
         <button class="btn-register" type="submit" name="button" value="submitButton">Register</button>

@@ -1,0 +1,18 @@
+﻿
+<a class="registerHighScore-link" href="#"> Register highscore</a>
+
+<div class="game-grid">
+    @foreach (var games in Model)
+    {
+        <div class="game-card">
+            <div class="title-link">
+                <a asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
+
+                    <span class="title-info">
+                        @games.Title
+                    </span>
+                </a>
+             </div>
+        </div>
+    }
+</div>
