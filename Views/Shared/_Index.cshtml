@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a class="registerHighScore-link" asp-controller="Register" asp-action="CreateScore">Register highscore</a>
+
+<div class="game-container">
+    @foreach (var games in Model)
+    {
+
+        <div class="game-card">
+            <a class="title-link" asp-route="gamedetails" asp-route-urlSlug="@games.UrlSlug">
+
+                @games.Title
+            </a>
+
+            @foreach (var score in games.AllGameScores)
+            {
+
+                    <div class="playerDate">
+
+                        <span class="player">
+                            @(score?.Player ?? "")
+                        </span>
+
+                        <span class="date">
+                            @score?.Date.ToString("yyyy-MM-dd")
+                        </span>
+
+                        <span class="highScore">
+                            @score?.Score
+                        </span>
+
+                    </div>
+            }
+
+        </div>
+    }
+</div>

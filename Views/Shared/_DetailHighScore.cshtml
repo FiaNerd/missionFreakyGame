@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<RegisterScore>
+
+
+<div class="score-container">
+
+    <h3 class="leaderboard-title">Leaderboard</h3>
+
+    @foreach (var item in Model)
+    {
+        <div class="print-container">
+            <span class="playerList">
+                @item.Player
+            </span>
+
+            <span class="dateList">
+                @item.Date.ToString("yyyy-MM-dd")
+            </span>
+
+                <span class="higScoreList">
+                    @item.Score
+                </span>
+            </div>
+    }
+
+</div>
