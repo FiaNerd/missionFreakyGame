@@ -18,7 +18,7 @@ namespace FreakyGame.Areas.Admin.Controllers
         // GET: Admin/HighScores
         public async Task<IActionResult> Index()
         {
-            var freakyGameContext = context.RegisterScores
+            var freakyGameContext = context.HighScores
                 .Include(r => r.Game);
 
             return View(await freakyGameContext.ToListAsync());
@@ -32,7 +32,7 @@ namespace FreakyGame.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var registerScore = await context.RegisterScores
+            var registerScore = await context.HighScores
                 .Include(r => r.Game)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (registerScore == null)

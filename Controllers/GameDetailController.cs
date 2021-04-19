@@ -21,7 +21,7 @@ namespace FreakyGame.Controllers
             var gameInfo = context.Games
                 .FirstOrDefault(game => game.UrlSlug == urlSlug);
 
-            gameInfo.AllGameScores = context.RegisterScores
+            gameInfo.AllGameScores = context.HighScores
                 .Where(score => score.GameId == gameInfo.Id)
                 .Include(x => x.Game)
                 .ToList();

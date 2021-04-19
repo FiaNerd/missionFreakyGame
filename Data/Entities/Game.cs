@@ -52,7 +52,7 @@ namespace FreakyGame.Data.Entities
 
         public string UrlSlug { get; protected set; }
 
-        public ICollection<RegisterScore> AllGameScores { get; set; }
+        public ICollection<HighScore> AllGameScores { get; set; }
 
     }
 }
