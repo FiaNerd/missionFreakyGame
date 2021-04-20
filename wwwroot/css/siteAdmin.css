@@ -68,11 +68,24 @@ a#link-backToList {
 }
 
 .logout {
+<<<<<<< HEAD
     color: #ffffff;
+=======
+ color: #ffffff;
+ font-size: 1.5rem;
+ margin-right: 9.5em;
+}
+
+.logout:hover,
+.logout:active,
+.logout:focus{
+    color: darkgrey;
+>>>>>>> 1da093e37eec7fa537ff721579b5d712621fa41c
     font-size: 1.5rem;
     margin-right: 9.5em;
 }
 
+<<<<<<< HEAD
     .logout:hover,
     .logout:active,
     .logout:focus {
@@ -81,6 +94,8 @@ a#link-backToList {
         margin-right: 9.5em;
     }
 
+=======
+>>>>>>> 1da093e37eec7fa537ff721579b5d712621fa41c
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;

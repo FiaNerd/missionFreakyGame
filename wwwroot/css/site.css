@@ -65,6 +65,14 @@ body {
         margin-left: 48.7em;
     }
 
+.login:hover,
+.login:active,
+.login:focus {
+    color: darkgrey;
+    font-size: 1.5rem;
+    margin-left: 48.7em;
+}
+
 /* INDEX */
 .registerHighScore-link {
     text-decoration: none;

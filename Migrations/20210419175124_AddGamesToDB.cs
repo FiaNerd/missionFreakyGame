@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FreakyGame.Migrations
 {
-    public partial class SeIfThisWork : Migration
+    public partial class AddGamesToDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace FreakyGame.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RegisterScores",
+                name: "HighScores",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -38,9 +38,9 @@ namespace FreakyGame.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RegisterScores", x => x.Id);
+                    table.PrimaryKey("PK_HighScores", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RegisterScores_Games_GameId",
+                        name: "FK_HighScores_Games_GameId",
                         column: x => x.GameId,
                         principalTable: "Games",
                         principalColumn: "Id",
@@ -48,15 +48,15 @@ namespace FreakyGame.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RegisterScores_GameId",
-                table: "RegisterScores",
+                name: "IX_HighScores_GameId",
+                table: "HighScores",
                 column: "GameId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "RegisterScores");
+                name: "HighScores");
 
             migrationBuilder.DropTable(
                 name: "Games");

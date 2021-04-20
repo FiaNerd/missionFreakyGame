@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace FreakyGame.Data.Entities
 {
     public class HighScore

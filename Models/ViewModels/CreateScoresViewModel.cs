@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FreakyGame.Models.ViewModels
 {
-    public class CreateScoreViewModel
+    public class CreateScoreViewModel 
     {
         public string Player { get; set; }
 

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    [Migration("20210327214420_SeIfThisWork")]
-    partial class SeIfThisWork
+    [Migration("20210419175124_AddGamesToDB")]
+    partial class AddGamesToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace FreakyGame.Migrations
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("FreakyGame.Data.Entities.RegisterScore", b =>
+            modelBuilder.Entity("FreakyGame.Data.Entities.HighScore", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,10 +76,10 @@ namespace FreakyGame.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("RegisterScores");
+                    b.ToTable("HighScores");
                 });
 
-            modelBuilder.Entity("FreakyGame.Data.Entities.RegisterScore", b =>
+            modelBuilder.Entity("FreakyGame.Data.Entities.HighScore", b =>
                 {
                     b.HasOne("FreakyGame.Data.Entities.Game", "Game")
                         .WithMany("AllGameScores")
