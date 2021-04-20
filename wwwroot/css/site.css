@@ -1,52 +1,52 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 700;
-  margin-bottom: 100px;
+    font-family: "Poppins", sans-serif;
+    font-size: 700;
+    margin-bottom: 100px;
 }
 
 .bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 @media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }
 
 .header-container {
-  position: relative;
-  height: 6em;
-  background-color: #000000;
-  line-height: 90px;
+    position: relative;
+    height: 6em;
+    background-color: #000000;
+    line-height: 90px;
 }
 
 .logo {
-  color: rgb(253, 253, 253);
-  text-decoration: none;
-  position: absolute;
-  text-align: center;
-  justify-content: center;
-  font-size: 4em;
-  font-weight: 900;
-  margin-left: 9em;
+    color: rgb(253, 253, 253);
+    text-decoration: none;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    font-size: 4em;
+    font-weight: 900;
+    margin-left: 9em;
 }
 
 .login {
@@ -56,6 +56,14 @@ body {
     text-decoration: none;
     margin-left: 48.7em;
 }
+
+    .login:hover,
+    .login:active,
+    .login:focus {
+        color: darkgrey;
+        font-size: 1.5rem;
+        margin-left: 48.7em;
+    }
 
 .login:hover,
 .login:active,
@@ -67,248 +75,248 @@ body {
 
 /* INDEX */
 .registerHighScore-link {
-  text-decoration: none;
-  color: black;
-  font-weight: 900;
-  font-size: 1.4rem;
-  top: 9em;
-  margin-left: 48.5em;
-  line-height: 7em;
-  padding: 0.8em 0.6em;
-  border: 5px solid #000000;
+    text-decoration: none;
+    color: black;
+    font-weight: 900;
+    font-size: 1.4rem;
+    top: 9em;
+    margin-left: 48.5em;
+    line-height: 7em;
+    padding: 0.8em 0.6em;
+    border: 5px solid #000000;
 }
 
-.registerHighScore-link:hover,
-.registerHighScore-link:focus {
-  color: brown;
-}
+    .registerHighScore-link:hover,
+    .registerHighScore-link:focus {
+        color: brown;
+    }
 
 .game-container {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 0.8em;
-  margin-bottom: 3em;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.8em;
+    margin-bottom: 3em;
 }
 
 .game-card {
-  width: 60%;
-  height: 8em;
-  border: 5px solid #000000;
-  margin-bottom: 2em;
-  padding: 1em;
+    width: 60%;
+    height: 8em;
+    border: 5px solid #000000;
+    margin-bottom: 2em;
+    padding: 1em;
 }
 
 .title-link {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #000000;
-  font-weight: 900;
-  margin-left: 1.7em;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 900;
+    margin-left: 1.7em;
 }
 
 div.playerDate {
-  position: absolute;
-  margin-left: 2em;
+    position: absolute;
+    margin-left: 2em;
 }
 
 span.player {
-  position: absolute;
-  font-size: 1.2rem;
-  color: #000000;
-  font-weight: 400;
+    position: absolute;
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 400;
 }
 
 span.date {
-  position: absolute;
-  font-size: 1rem;
-  color: #505050;
-  margin-top: 2em;
+    position: absolute;
+    font-size: 1rem;
+    color: #505050;
+    margin-top: 2em;
 }
 
 span.highScore {
-  font-size: 2em;
-  font-weight: 900;
-  color: #000000;
-  margin-left: 19em;
+    font-size: 2em;
+    font-weight: 900;
+    color: #000000;
+    margin-left: 19em;
 }
 
 /* DETAIL */
 .game-details {
-  display: grid;
-  position: relative;
-  grid-template-columns: 50% 37%;
-  max-width: 60%;
-  grid-gap: 0em 3em;
-  padding: 1.5em;
-  justify-content: center;
-  background-color: #000000;
-  margin-top: 5em;
-  margin-left: 19em;
-  margin-bottom: 4em;
+    display: grid;
+    position: relative;
+    grid-template-columns: 50% 37%;
+    max-width: 60%;
+    grid-gap: 0em 3em;
+    padding: 1.5em;
+    justify-content: center;
+    background-color: #000000;
+    margin-top: 5em;
+    margin-left: 19em;
+    margin-bottom: 4em;
 }
 
 .title-game {
-  font-size: 1.5em;
-  font-weight: 900;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #ffffff;
 }
 
 .title-link:hover,
 .title-link:focus {
-  color: brown;
+    color: brown;
 }
 
 .descriptionDetail {
-  margin-bottom: 1.5em;
-  color: #ffffff;
+    margin-bottom: 1.5em;
+    color: #ffffff;
 }
 
 .genreDetail {
-  color: #ffffff;
-  margin-bottom: 1em;
+    color: #ffffff;
+    margin-bottom: 1em;
 }
 
 .dateDetail {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 /* FROM List */
 
 .leaderboard-title {
-  font-size: 1.8rem;
-  margin-bottom: 0.5em;
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
 }
 
 .score-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4em;
-  margin-bottom: 9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4em;
+    margin-bottom: 9em;
 }
 
 .print-container {
-  width: 60%;
-  height: 6em;
-  border: 5px solid #000000;
-  margin-bottom: 2em;
-  padding: 1em;
+    width: 60%;
+    height: 6em;
+    border: 5px solid #000000;
+    margin-bottom: 2em;
+    padding: 1em;
 }
 
 span.playerList {
-  position: absolute;
-  font-size: 1.2rem;
-  color: #000000;
-  font-weight: 900;
-  margin-left: 2em;
+    position: absolute;
+    font-size: 1.2rem;
+    color: #000000;
+    font-weight: 900;
+    margin-left: 2em;
 }
 
 span.dateList {
-  position: absolute;
-  font-size: 1rem;
-  color: #505050;
-  margin-top: 2em;
-  margin-left: 2.4em;
+    position: absolute;
+    font-size: 1rem;
+    color: #505050;
+    margin-top: 2em;
+    margin-left: 2.4em;
 }
 
 span.higScoreList {
-  position: absolute;
-  font-size: 2em;
-  font-weight: 900;
-  color: #000000;
-  margin-left: 20em;
-  margin-top: 0.2em;
+    position: absolute;
+    font-size: 2em;
+    font-weight: 900;
+    color: #000000;
+    margin-left: 20em;
+    margin-top: 0.2em;
 }
 
 /* FORM */
 
 h2 {
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 .form-grid {
-  display: flex;
-  width: 40%;
-  margin-bottom: 5em;
-  margin-left: 28em;
-  padding: 2em;
-  background-color: #000000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    width: 40%;
+    margin-bottom: 5em;
+    margin-left: 28em;
+    padding: 2em;
+    background-color: #000000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .form {
-  position: relative;
-  width: 70%;
-  padding-bottom: 2em;
-  margin-left: 5em;
+    position: relative;
+    width: 70%;
+    padding-bottom: 2em;
+    margin-left: 5em;
 }
 
-.form label {
-  display: block;
-  color: #fff;
-  margin-bottom: 0.3em;
-  margin-top: 0.8em;
-}
+    .form label {
+        display: block;
+        color: #fff;
+        margin-bottom: 0.3em;
+        margin-top: 0.8em;
+    }
 
-.form select {
-  height: 2.4em;
-  width: 100%;
-  margin-bottom: 0.3em;
-}
+    .form select {
+        height: 2.4em;
+        width: 100%;
+        margin-bottom: 0.3em;
+    }
 
-.form input {
-  position: block;
-  height: 2.4em;
-  width: 100%;
-  padding-left: 0.3em;
-  border: 1px solid #747474;
-  border-radius: 0.2em;
-  margin-bottom: 0.3em;
-}
+    .form input {
+        position: block;
+        height: 2.4em;
+        width: 100%;
+        padding-left: 0.3em;
+        border: 1px solid #747474;
+        border-radius: 0.2em;
+        margin-bottom: 0.3em;
+    }
 
 .field-validation-error {
-  color: #e0e0e0;
-  margin-left: 1em;
+    color: #e0e0e0;
+    margin-left: 1em;
 }
 
 .btn-register {
-  cursor: pointer;
-  height: 14%;
-  width: 28%;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-top: 1em;
-  border: none;
-  background-color: #ffffff;
-  margin-left: 8em;
+    cursor: pointer;
+    height: 14%;
+    width: 28%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 1em;
+    border: none;
+    background-color: #ffffff;
+    margin-left: 8em;
 }
 
-.btn-register:hover,
-.btn-register:focus {
-  color: rgb(255, 255, 255);
-  background-color: brown;
-}
+    .btn-register:hover,
+    .btn-register:focus {
+        color: rgb(255, 255, 255);
+        background-color: brown;
+    }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-  background-color: #000000;
-  text-align: center;
-  color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
 }
 
 /* ADMIN INDEX */
 .nav-link.active a {
-  color: #000000;
+    color: #000000;
 }
