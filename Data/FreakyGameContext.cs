@@ -13,5 +13,10 @@ namespace FreakyGame.Data
         {
 
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=.;Database=FreakyGame;Trusted_Connection=True");
+        }
     }
 }
