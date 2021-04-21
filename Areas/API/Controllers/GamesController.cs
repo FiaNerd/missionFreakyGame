@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
+using FreakyGame.Areas.API.Dto;
 
-namespace FreakyGame.API.Controllers
+namespace FreakyGame.Areas.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,14 +22,29 @@ namespace FreakyGame.API.Controllers
 
         // GET: api/Games
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Game>>> GetGames()
+        public IEnumerable<GameDto> GetGames()
         {
-            return await context.Games.ToListAsync();
+            var games =  context.Games.ToList();
+
+            var dtoGame = games.Select(GamesToDto);
+
+            return dtoGame;
         }
 
+        public GameDto GamesToDto(Game games)
+           => new GameDto
+           {
+               Id = games.Id,
+               Title = games.Title,
+               Description = games.Description,
+               ReleaseYear = games.ReleaseYear,
+               Genre = games.Genre,
+               ImageUrl = games.ImageUrl,
+           };
+
         // GET: api/Games/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> GetGame(int id)
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Game>> GetGameId(int id)
         {
             var game = await context.Games.FindAsync(id);
 
@@ -43,7 +59,7 @@ namespace FreakyGame.API.Controllers
         // PUT: api/Games/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGame(int id, Game game)
+        public async Task<IActionResult> PutGame(int id, GameDto game)
         {
             if (id != game.Id)
             {
@@ -74,7 +90,7 @@ namespace FreakyGame.API.Controllers
         // POST: api/Games
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(Game game)
+        public async Task<ActionResult<GameDto>> PostGame(Game game)
         {
             context.Games.Add(game);
             await context.SaveChangesAsync();

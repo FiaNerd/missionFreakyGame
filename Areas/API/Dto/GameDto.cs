@@ -2,7 +2,7 @@
 
 namespace FreakyGame.Areas.API.Dto
 {
-    public class GamesDto
+    public class GameDto
     {
         public int Id { get; set; }
 

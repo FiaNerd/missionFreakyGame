@@ -1,12 +1,19 @@
 ﻿using FreakyGame.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using FreakyGame.Areas.API.Dto;
 
 namespace FreakyGame.Data
 {
     public class FreakyGameContext : DbContext
     {
         public DbSet<Game> Games { get; set; }
+
         public DbSet<HighScore> HighScores { get; set; }
+
+
+        //public DbSet<GameDto> GameDto { get; set; }
+
+        //public DbSet<HighScoreDto> HighScoreDto { get; set; }
 
         public FreakyGameContext(DbContextOptions<FreakyGameContext> options)
             : base(options)
@@ -18,5 +25,6 @@ namespace FreakyGame.Data
         {
             optionsBuilder.UseSqlServer("Server=.;Database=FreakyGame;Trusted_Connection=True");
         }
+
     }
 }
