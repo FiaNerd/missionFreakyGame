@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
 
-namespace FreakyGame.Areas.API.Controllers
+namespace FreakyGame.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
