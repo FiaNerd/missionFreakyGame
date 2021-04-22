@@ -1,4 +1,5 @@
 using FreakyGame.Data;
+using FreakyGame.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,12 @@ namespace FreakyGame
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(options =>
+            {
+                options.Cookie.IsEssential = true;
+            });
+
+
             services.AddDbContext<FreakyGameContext>
              (options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
@@ -44,7 +51,10 @@ namespace FreakyGame
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -36,6 +36,15 @@ namespace FreakyGame.Data.Entities
             Id = id;
         }
 
+        public Game(int id, string title, string description, string genre, string releaseYear, Uri imageUrl)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Genre = genre;
+            ReleaseYear = releaseYear;
+            ImageUrl = imageUrl;
+        }
 
         public int Id { get; protected set; }
         
