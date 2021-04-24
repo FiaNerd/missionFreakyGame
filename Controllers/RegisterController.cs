@@ -82,7 +82,6 @@ namespace FreakyGame.Controllers
 
                 context.HighScores.Add(newHighScore);
 
-
                 context.SaveChanges();
             }
 
@@ -90,7 +89,6 @@ namespace FreakyGame.Controllers
             return RedirectToAction("Index", "Home");
 
         }
-        //return View(viewModel);
 
     }
 }
