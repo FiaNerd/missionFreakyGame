@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FreakyGame.Areas.API.Dto
 {
@@ -15,5 +16,7 @@ namespace FreakyGame.Areas.API.Dto
         public string ReleaseYear { get; set; }
 
         public Uri ImageUrl { get; set; }
+
+        public ICollection<HighScoreDto> AllGameScores { get; set; }
     }
 }

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
+using FreakyGame.Areas.API.Dto;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FreakyGame.Areas.API.Controllers
 {
@@ -71,16 +73,41 @@ namespace FreakyGame.Areas.API.Controllers
             return NoContent();
         }
 
+        //GET /products/new
+       public ActionResult PostHighScore()
+        {
+            var listScore = new HighScoreDto();
+            listScore.ListScores = context.Games
+                .Select(a => new SelectListItem()
+                {
+                    Value = a.Id.ToString(),
+                    Text = a.Title
+                })
+                .ToList();
+
+            return Ok(listScore);
+        }
+
         // POST: api/HighScores
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<HighScore>> PostHighScore(HighScore highScore)
+        public ActionResult<HighScore> PostHighScore(HighScoreDto highScoreDto)
         {
-            context.HighScores.Add(highScore);
-            await context.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                var newHighScore = new HighScore(
+                      highScoreDto.GameId,
+                      highScoreDto.Player,
+                      highScoreDto.Date,
+                      highScoreDto.Score
+                  );
 
-            return CreatedAtAction("GetHighScore", new { id = highScore.Id }, highScore);
+                context.HighScores.Add(newHighScore);
+                context.SaveChangesAsync();
+            }
+            return CreatedAtAction("GetHighScore", new { id = highScoreDto.Id }, highScoreDto);
         }
+
 
         // DELETE: api/HighScores/5
         [HttpDelete("{id}")]
