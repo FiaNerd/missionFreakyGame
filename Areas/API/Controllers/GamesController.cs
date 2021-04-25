@@ -95,8 +95,8 @@ namespace FreakyGame.Areas.API.Controllers
                 var newGame = new Game(
                    dto.Title,
                    dto.Description,
-                   dto.ReleaseYear,
                    dto.Genre,
+                   dto.ReleaseYear,
                    dto.ImageUrl);
 
             context.Games.Add(newGame);
