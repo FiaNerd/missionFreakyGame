@@ -35,7 +35,7 @@ namespace FreakyGame.Areas.API.Controllers
            => new HighScoreDto
            {
                Id = highScore.Id,
-               GameId = highScore.GameId,
+               //GameId = highScore.GameId,
                Player = highScore.Player,
                Date = highScore.Date,
                Score = highScore.Score,
@@ -88,22 +88,22 @@ namespace FreakyGame.Areas.API.Controllers
 
         // POST: api/HighScores
         [HttpPost]
-        public ActionResult<HighScore> PostHighScore(HighScoreDto highScoreDto)
+        public ActionResult<HighScore> PostHighScore(HighScoreDto dto)
         {
             if (ModelState.IsValid)
             {
                 var newHighScore = new HighScore(
-                      highScoreDto.GameId,
-                      highScoreDto.Player,
-                      highScoreDto.Date,
-                      highScoreDto.Score
+                      gameId: dto.GameId,
+                      player: dto.Player,
+                      date: dto.Date,
+                      score: dto.Score
                   );
 
                 context.HighScores.Add(newHighScore);
 
                 context.SaveChangesAsync();
             }
-            return CreatedAtAction("GetHighScore", new { id = highScoreDto.Id }, highScoreDto);
+            return CreatedAtAction("GetHighScore", new { id = dto.Id }, dto);
         }
 
 
