@@ -1,5 +1,7 @@
 ﻿
-<a class="registerHighScore-link" href="#"> Register highscore</a>
+@*<a class="registerHighScore-link" href="#"> Register highscore</a>*@
+
+<a class="registerHighScore-link" asp-controller="Register" asp-action="RegisterHighScore">Register highscore</a>
 
 <div class="game-grid">
     @foreach (var games in Model)

@@ -55,7 +55,7 @@ namespace FreakyGame.Data.Entities
             ImageUrl = imageUrl;
         }
 
-        public int Id { get; protected set; }
+        public int Id { get; set; }
         
         public string Title { get; protected set; }
 
