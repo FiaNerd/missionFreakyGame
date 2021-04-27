@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
 using FreakyGame.Areas.API.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace FreakyGame.Areas.API.Controllers
 {
@@ -24,7 +24,9 @@ namespace FreakyGame.Areas.API.Controllers
         [HttpGet]
         public IEnumerable<HighScoreDto> GetHighScores()
         {
-            var highScores = context.HighScores.ToList();
+            var highScores = context.HighScores
+                .Include(x => x.Game)
+                .ToList();
 
             var dtoScore = highScores.Select(HighScoresToDto);
 
@@ -35,17 +37,20 @@ namespace FreakyGame.Areas.API.Controllers
            => new HighScoreDto
            {
                Id = highScore.Id,
-               //GameId = highScore.GameId,
+               GameId = highScore.GameId,
                Player = highScore.Player,
                Date = highScore.Date,
                Score = highScore.Score,
+               GTitle = highScore.GTitle
            };
 
         // GET: api/Games/5
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<HighScore>> GetHighScoreId(int id)
+        public ActionResult<HighScore> GetHighScoreId(int id)
         {
-            var highScore = await context.HighScores.FindAsync(id);
+            var highScore = context.HighScores
+                .Include(x => x.Game)
+                .FirstOrDefault(x => x.Id == id);
 
             if (highScore == null)
             {
@@ -55,54 +60,37 @@ namespace FreakyGame.Areas.API.Controllers
             return highScore;
         }
 
-        // PUT: api/HighScores/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutHighScore(int id, HighScore highScore)
-        {
-            if (id != highScore.Id)
-            {
-                return BadRequest();
-            }
-
-            context.Entry(highScore).State = EntityState.Modified;
-
-            try
-            {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HighScoreExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-
         // POST: api/HighScores
         [HttpPost]
         public ActionResult<HighScore> PostHighScore(HighScoreDto dto)
         {
+            var game = context.Games
+           .Include(x => x.AllGameScores)
+           .FirstOrDefault(x => x.Title == dto.GTitle);
+
             if (ModelState.IsValid)
             {
+                //foreach (var item in dto.ListOfGames)
+                //{
+                    if (game == null)
+                    {
+                        return NotFound();
+                    }
+                //}
                 var newHighScore = new HighScore(
-                      gameId: dto.GameId,
+                      gameId: game.Id,
                       player: dto.Player,
                       date: dto.Date,
-                      score: dto.Score
+                      score: dto.Score,
+                      gTitle: dto.GTitle
                   );
 
                 context.HighScores.Add(newHighScore);
 
-                context.SaveChangesAsync();
+                context.SaveChanges();
             }
+
+
             return CreatedAtAction("GetHighScore", new { id = dto.Id }, dto);
         }
 
@@ -112,20 +100,22 @@ namespace FreakyGame.Areas.API.Controllers
         public async Task<IActionResult> DeleteHighScore(int id)
         {
             var highScore = await context.HighScores.FindAsync(id);
+
             if (highScore == null)
             {
                 return NotFound();
             }
 
             context.HighScores.Remove(highScore);
+
             await context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool HighScoreExists(int id)
-        {
-            return context.HighScores.Any(e => e.Id == id);
-        }
+        //private bool HighScoreExists(int id)
+        //{
+        //    return context.HighScores.Any(e => e.Id == id);
+        //}
     }
 }

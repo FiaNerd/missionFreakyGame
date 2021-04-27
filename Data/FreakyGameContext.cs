@@ -11,10 +11,6 @@ namespace FreakyGame.Data
         public DbSet<HighScore> HighScores { get; set; }
 
 
-        //public DbSet<GameDto> GameDto { get; set; }
-
-        //public DbSet<HighScoreDto> HighScoreDto { get; set; }
-
         public FreakyGameContext(DbContextOptions<FreakyGameContext> options)
             : base(options)
         {

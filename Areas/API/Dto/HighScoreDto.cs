@@ -7,18 +7,22 @@ namespace FreakyGame.Areas.API.Dto
 {
     public class HighScoreDto
     {
-            public int Id { get; set; }
+        public int Id { get; set; }
 
-            public string Player { get; set; }
+        public string GTitle { get; set; }
 
-            public DateTime Date { get; set; }
+        public string Player { get; set; }
 
-            public int Score { get; set; }
+        public DateTime Date { get; set; }
 
-            public int GameId { get; set; }
+        public int Score { get; set; }
 
-            public Game Game { get; set; }
+        public int GameId { get; set; }
 
-           public List<SelectListItem> ListScores { get; set; }
+        public Game Game { get; set; }
+
+        //public List<SelectListItem> ListScores { get; set; }
+
+        //public List<Game> ListOfGames { get; set; }
     }
 }

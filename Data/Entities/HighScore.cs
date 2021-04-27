@@ -21,6 +21,16 @@ namespace FreakyGame.Data.Entities
             GameId = gameId;
         }
 
+        public HighScore(string gTitle, string player, DateTime date, int score, int gameId)
+        {
+            GTitle = gTitle;
+            Player = player;
+            Date = date;
+            Score = score;
+            GameId = gameId;
+        }
+
+
         public HighScore(int id, string player, DateTime date, int score)
         {
             Id = id;
@@ -30,6 +40,8 @@ namespace FreakyGame.Data.Entities
         }
 
         public int Id { get; protected set; }
+
+        public string GTitle { get; protected set; }
 
         [Required]
         [MaxLength(50)]

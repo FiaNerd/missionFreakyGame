@@ -1,7 +1,7 @@
 USE FreakyGame
 
-SELECT * FROM HighScores
 SELECT * FROM Games
+SELECT * FROM HighScores
 
 INSERT INTO Games(Title, Description, Genre, ReleaseYear, ImageUrl, UrlSlug)
 VALUES 
@@ -11,3 +11,6 @@ VALUES
 ('Donky Kong', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Video game', 1954, 'https://via.placeholder.com/320x320.png?text=DonkyKong', 'DonkyKong')
 
 
+SELECT * FROM HighScores
+
+UPDATE HighScores SET Title = 'Tile'

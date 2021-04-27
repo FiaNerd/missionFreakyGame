@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FreakyGame.Migrations
 {
     [DbContext(typeof(FreakyGameContext))]
-    [Migration("20210420050945_AddToDB")]
-    partial class AddToDB
+    [Migration("20210427161025_AddGameTitle")]
+    partial class AddGameTitle
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,6 +60,9 @@ namespace FreakyGame.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("GTitle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GameId")
                         .HasColumnType("int");

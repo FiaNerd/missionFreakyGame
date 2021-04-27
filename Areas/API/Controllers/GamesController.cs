@@ -58,34 +58,34 @@ namespace FreakyGame.Areas.API.Controllers
 
         // PUT: api/Games/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> PutGame(int id, GameDto game)
-        {
-            if (id != game.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("{id:int}")]
+        //public async Task<IActionResult> PutGame(int id, GameDto game)
+        //{
+        //    if (id != game.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            context.Entry(game).State = EntityState.Modified;
+        //    context.Entry(game).State = EntityState.Modified;
 
-            try
-            {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GameExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!GameExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         [HttpPost]
         public ActionResult<Game> PostGame(GameDto dto)
@@ -127,9 +127,9 @@ namespace FreakyGame.Areas.API.Controllers
             return NoContent();
         }
 
-        private bool GameExists(int id)
-        {
-            return context.Games.Any(e => e.Id == id);
-        }
+        //private bool GameExists(int id)
+        //{
+        //    return context.Games.Any(e => e.Id == id);
+        //}
     }
 }
