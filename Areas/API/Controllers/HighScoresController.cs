@@ -70,13 +70,11 @@ namespace FreakyGame.Areas.API.Controllers
 
             if (ModelState.IsValid)
             {
-                //foreach (var item in dto.ListOfGames)
-                //{
                     if (game == null)
                     {
                         return NotFound();
                     }
-                //}
+
                 var newHighScore = new HighScore(
                       gameId: game.Id,
                       player: dto.Player,
@@ -89,7 +87,6 @@ namespace FreakyGame.Areas.API.Controllers
 
                 context.SaveChanges();
             }
-
 
             return CreatedAtAction("GetHighScore", new { id = dto.Id }, dto);
         }
@@ -112,10 +109,5 @@ namespace FreakyGame.Areas.API.Controllers
 
             return NoContent();
         }
-
-        //private bool HighScoreExists(int id)
-        //{
-        //    return context.HighScores.Any(e => e.Id == id);
-        //}
     }
 }

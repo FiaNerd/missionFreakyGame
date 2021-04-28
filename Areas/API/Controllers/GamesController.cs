@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using FreakyGame.Data;
 using FreakyGame.Data.Entities;
 using FreakyGame.Areas.API.Dto;
@@ -56,58 +55,35 @@ namespace FreakyGame.Areas.API.Controllers
             return game;
         }
 
-        // PUT: api/Games/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id:int}")]
-        //public async Task<IActionResult> PutGame(int id, GameDto game)
-        //{
-        //    if (id != game.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    context.Entry(game).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!GameExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
 
         [HttpPost]
         public ActionResult<Game> PostGame(GameDto dto)
         {
-            if (ModelState.IsValid)
+            bool gameExists = context.Games
+                .Any(x => x.Title == dto.Title);
+
+
+            if (ModelState.IsValid && !gameExists )
             {
                 var newGame = new Game(
-                   dto.Title,
-                   dto.Description,
-                   dto.Genre,
-                   dto.ReleaseYear,
-                   dto.ImageUrl);
+                      title: dto.Title,
+                      description: dto.Description,
+                      genre: dto.Genre,
+                      releaseYear: dto.ReleaseYear,
+                      imageUrl: dto.ImageUrl
+                  );
 
-            context.Games.Add(newGame);
+                context.Games.Add(newGame);
 
-            context.SaveChanges();
-
+                context.SaveChanges();
             }
-            return CreatedAtAction("GetGame", new { id = dto.Id }, dto);
+            else
+            {
+                return NotFound();
+            }
+
+            return CreatedAtAction(nameof(GetGames), new { id = dto.Id }, dto);
         }
-
-
 
 
         //DELETE: api/Games/5
@@ -122,14 +98,10 @@ namespace FreakyGame.Areas.API.Controllers
             }
 
             context.Games.Remove(game);
+
             await context.SaveChangesAsync();
 
             return NoContent();
         }
-
-        //private bool GameExists(int id)
-        //{
-        //    return context.Games.Any(e => e.Id == id);
-        //}
     }
 }

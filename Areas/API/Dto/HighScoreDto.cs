@@ -20,9 +20,5 @@ namespace FreakyGame.Areas.API.Dto
         public int GameId { get; set; }
 
         public Game Game { get; set; }
-
-        //public List<SelectListItem> ListScores { get; set; }
-
-        //public List<Game> ListOfGames { get; set; }
     }
 }
