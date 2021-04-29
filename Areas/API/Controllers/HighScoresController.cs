@@ -44,6 +44,7 @@ namespace FreakyGame.Areas.API.Controllers
                GTitle = highScore.GTitle
            };
 
+
         // GET: api/Games/5
         [HttpGet("{id:int}")]
         public ActionResult<HighScore> GetHighScoreId(int id)
@@ -59,6 +60,7 @@ namespace FreakyGame.Areas.API.Controllers
 
             return highScore;
         }
+
 
         // POST: api/HighScores
         [HttpPost]
@@ -88,7 +90,7 @@ namespace FreakyGame.Areas.API.Controllers
                 context.SaveChanges();
             }
 
-            return CreatedAtAction("GetHighScore", new { id = dto.Id }, dto);
+            return CreatedAtAction(nameof(GetHighScores), new { id = dto.Id }, dto);
         }
 
 
